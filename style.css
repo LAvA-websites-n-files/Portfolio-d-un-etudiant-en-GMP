@@ -38,9 +38,10 @@ header {
   flex: 1;
 }
 @media (max-width: 700px) {
-  .compétence {
+  .compétences {
     flex-direction: column;
   }
 }
+
 
 
