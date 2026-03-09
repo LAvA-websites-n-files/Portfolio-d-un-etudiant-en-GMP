@@ -30,11 +30,12 @@ header {
   transform: translateY(-5px);
   box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
-.Compétences {
+.compétences {
   display: flex;
   gap: 20px; /* espace entre les projets */
 }
-.project {
+.compétence {
   flex: 1;
 }
+
 
