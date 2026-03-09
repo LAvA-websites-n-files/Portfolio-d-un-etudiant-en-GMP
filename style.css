@@ -30,3 +30,10 @@ header {
   transform: translateY(-5px);
   box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
+.projects {
+  display: flex;
+  gap: 20px; /* espace entre les projets */
+}
+.project {
+  flex: 1;
+}
