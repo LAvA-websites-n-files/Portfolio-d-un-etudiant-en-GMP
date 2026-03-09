@@ -1,0 +1,17 @@
+/* style.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+header {
+  background-image: url("images/fond.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
