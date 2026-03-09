@@ -37,5 +37,8 @@ header {
 .compétence {
   flex: 1;
 }
-
-
+@media (max-width: 700px) {
+  .skills {
+    flex-direction: column;
+  }
+}
