@@ -24,4 +24,9 @@ header {
 
   border-radius: 20px; /* arrondit les coins */
   box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* ombre douce */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.bubble:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
