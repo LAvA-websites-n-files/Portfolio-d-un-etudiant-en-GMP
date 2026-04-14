@@ -8,8 +8,11 @@ body {
 header h1 {
   color: black;
 }
-header p {
-  color: black;
+header q {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
 }
 header {
   height: 400px;
