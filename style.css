@@ -12,8 +12,15 @@ header p {
   color: black;
 }
 header {
-  background: lime !important;
-  height: 200px !important;
+  height: 400px;
+  background: url("images/header.jpg") center/cover no-repeat;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+
+  padding-top: 120px; /* 👈 là tu verras clairement le mouvement */
 }
 .bubble {
   background: white;
