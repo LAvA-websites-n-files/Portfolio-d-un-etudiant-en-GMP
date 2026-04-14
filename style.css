@@ -19,6 +19,7 @@ header {
 
   background-size: cover;
   background-position: center;
+  text-align: center;
 }
 .bubble {
   background: white;
