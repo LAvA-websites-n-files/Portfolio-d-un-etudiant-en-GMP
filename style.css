@@ -1,6 +1,10 @@
 /* style.css */
-* {
-  outline: 2px solid red !important;
+body {
+  background: red !important;
+}
+
+header {
+  display: none !important;
 }
 body {
   font-family: Arial, sans-serif;
