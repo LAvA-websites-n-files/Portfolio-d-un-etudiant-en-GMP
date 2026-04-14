@@ -19,9 +19,6 @@ header {
 .bubble {
   background: white;
   padding: 30px;
-  margin: 40px auto;
-  max-width: 900px;
-
   border-radius: 20px; /* arrondit les coins */
   box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* ombre douce */
   transition: transform 0.2s, box-shadow 0.2s;
