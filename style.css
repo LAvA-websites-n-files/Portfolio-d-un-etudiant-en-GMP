@@ -17,7 +17,7 @@ header {
 
 }
 .bubble {
-  background: white;
+  background: red;
   padding: 30px;
   border-radius: 20px; /* arrondit les coins */
   box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* ombre douce */
