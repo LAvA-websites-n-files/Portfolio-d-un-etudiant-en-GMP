@@ -11,13 +11,13 @@ header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: white;
+  color: red;
   padding: 80px 20px;
   text-align: center;
 
 }
 .bubble {
-  background: red;
+  background: white;
   padding: 30px;
   border-radius: 20px; /* arrondit les coins */
   box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* ombre douce */
