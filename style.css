@@ -12,7 +12,8 @@ header p {
   color: black;
 }
 header {
-  height: 400px
+  height: 400px;
+
   background-image: url("images/header.jpg");
   background-size: cover;
   background-position: center;
