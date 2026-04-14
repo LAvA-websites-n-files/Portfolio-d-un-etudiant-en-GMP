@@ -24,11 +24,11 @@ header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding-bottom: 60px;
+  text-align: center bottom;
 }
 .bubble {
   background: white;
