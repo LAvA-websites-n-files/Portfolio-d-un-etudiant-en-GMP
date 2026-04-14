@@ -12,15 +12,19 @@ header p {
   color: black;
 }
 header {
-  height: 50vh;
-  background: url("images/header.jpg") center/cover no-repeat;
-  position: relative;
-}
-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.3);
+  height: 100vh; /* ou 80vh si tu veux moins grand */
+
+  background-image: url("images/header.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
 }
 .bubble {
   background: white;
