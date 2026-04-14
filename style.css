@@ -24,7 +24,7 @@ header {
   justify-content: center;
   align-items: center;
 
-  text-align: center;
+  text-align: center bottom;
 }
 .bubble {
   background: white;
