@@ -5,6 +5,10 @@ body {
   color: #333;
 }
 
+header h1,
+header p {
+  color: black;
+}
 header {
   background-image: url("images/header.jpg");
   background-size: cover;
@@ -13,7 +17,7 @@ header {
   color: black;
   padding: 80px 20px;
   text-align: center;
-  margin-bottom: 60px
+  margin-bottom: 60px;
 }
 .bubble {
   background: white;
