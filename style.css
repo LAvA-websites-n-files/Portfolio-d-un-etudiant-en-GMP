@@ -26,11 +26,9 @@ header {
   background-repeat: no-repeat;
 
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-
-  text-align: center bottom;
+  padding-bottom: 60px;
 }
 .bubble {
   background: white;
