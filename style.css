@@ -12,15 +12,15 @@ header p {
   color: black;
 }
 header {
-  width: 100%;
-  margin: 0;
-  padding: 0;
   height: 50vh;
 
   background-image: url("images/header.jpg");
-  background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  background-color: #000; /* important pour les espaces vides */
+  text-align: center center;
 }
 .bubble {
   background: white;
