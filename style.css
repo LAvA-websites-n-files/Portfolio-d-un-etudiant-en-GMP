@@ -6,7 +6,7 @@ body {
 }
 
 header {
-  background-image: url("https://picsum.photos/1200/600");
+  background-image: url("images/header.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
