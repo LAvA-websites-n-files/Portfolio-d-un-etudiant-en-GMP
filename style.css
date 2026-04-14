@@ -30,10 +30,10 @@ header {
 .compétences {
   display: flex;
   gap: 20px; /* espace entre les projets */
+  justify-content: space-between;
 }
 .compétence {
   flex: 1;
-  text-align: center;
 }
 @media (max-width: 700px) {
   .compétences {
