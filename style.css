@@ -10,12 +10,14 @@ header h1 {
   color: white;
   padding: 10px 20px;
   border-radius: 10px;
+  margin-bottom: 8px;
 }
 header r {
   background: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 10px 20px;
   border-radius: 10px;
+  margin: 0;
 }
 header {
   height: 400px;
@@ -26,9 +28,9 @@ header {
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-
+  padding-bottom: 30px;
   text-align: center;
 }
 .bubble {
