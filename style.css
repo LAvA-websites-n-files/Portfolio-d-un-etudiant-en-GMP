@@ -12,22 +12,8 @@ header p {
   color: black;
 }
 header {
-  background-image: url("images/header.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-
-  height: 400px;
-
-  display: flex;
-  flex-direction: column;
-
-  justify-content: flex-start;
-
-  align-items: center;
-
-  padding-top: 20px;
+  background: lime !important;
+  height: 200px !important;
 }
 .bubble {
   background: white;
