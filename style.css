@@ -33,6 +33,7 @@ header {
 }
 .compétence {
   flex: 1;
+  text-align: center;
 }
 @media (max-width: 700px) {
   .compétences {
