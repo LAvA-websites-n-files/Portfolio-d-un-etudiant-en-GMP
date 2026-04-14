@@ -13,14 +13,14 @@ header p {
 }
 header {
   height: 50vh;
-
-  background-image: url("images/header.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-
-  background-color: #000; /* important pour les espaces vides */
-  text-align: center center;
+  background: url("images/header.jpg") center/cover no-repeat;
+  position: relative;
+}
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
 }
 .bubble {
   background: white;
