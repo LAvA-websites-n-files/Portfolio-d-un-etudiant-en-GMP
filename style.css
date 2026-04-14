@@ -16,13 +16,18 @@ header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-top: 20px;   /* 👈 texte plus haut */
-  padding-bottom: 120px; /* garde de la hauteur en bas */
+  height: 400px;   /* 👈 taille fixe */
 
   text-align: center;
-  color: black;
-
   margin-bottom: 60px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start; /* texte en haut */
+  align-items: center;
+
+  padding-top: 40px; /* ajuste position du texte */
 }
 .bubble {
   background: white;
