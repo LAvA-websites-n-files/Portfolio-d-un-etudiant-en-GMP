@@ -12,8 +12,7 @@ header p {
   color: black;
 }
 header {
-  height: 100vh; /* ou 80vh si tu veux moins grand */
-
+  height: 400px
   background-image: url("images/header.jpg");
   background-size: cover;
   background-position: center;
