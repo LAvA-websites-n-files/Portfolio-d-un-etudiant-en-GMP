@@ -13,15 +13,12 @@ header p {
 }
 header {
   background-image: url("images/header.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  min-height: 300px;
+  max-height: 500px;
+  height: 50vh;
 
-  text-align: center;
+  background-size: cover;
+  background-position: center;
 }
 .bubble {
   background: white;
