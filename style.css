@@ -16,9 +16,15 @@ header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: black;
-  padding: 80px 20px;
-  text-align: center;
+  height: 400px; /* ou 60vh */
+  
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start; /* ⬅️ texte en haut */
+  align-items: center;
+
+  padding-top: 40px; /* petit espace en haut */
   margin-bottom: 60px;
 }
 .bubble {
