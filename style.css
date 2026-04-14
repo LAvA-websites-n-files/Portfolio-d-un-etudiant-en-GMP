@@ -24,7 +24,7 @@ header {
   justify-content: flex-start; /* ⬅️ texte en haut */
   align-items: center;
 
-  padding-top: 40px; /* petit espace en haut */
+  padding-top: 120px; /* petit espace en haut */
   margin-bottom: 60px;
 }
 .bubble {
