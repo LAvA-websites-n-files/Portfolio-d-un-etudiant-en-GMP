@@ -2,6 +2,10 @@
 body {
   background: red !important;
 }
+header {
+  background: yellow !important;
+  height: 400px;
+}
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -13,10 +17,6 @@ header h1 {
 }
 header p {
   color: black;
-}
-header {
-  background: yellow !important;
-  height: 400px;
 }
 .bubble {
   background: white;
