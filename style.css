@@ -49,7 +49,7 @@ header {
 }
 .floating {
   position: absolute;
-  width: clamp(250px, 6vw, 500px);
+  .img1, .img2, .img3, .img4, .img7, .img8, {width: clamp(250px, 6vw, 500px); }
   .img5 { width: clamp(250px, 6vw, 400px); }
   .img6 { width: clamp(400px, 6vw, 800px); }
   opacity: 0; /* invisible au début */
