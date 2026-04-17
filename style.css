@@ -65,7 +65,7 @@ header {
 .img7 { top: 10px; right: 12.5%; }
 .img8 { top: 250px; right: 15%; }
 
-.img1, .img5, img3 {
+.img5, img3 {
   z-index: 1;
 }
 .img1 {
