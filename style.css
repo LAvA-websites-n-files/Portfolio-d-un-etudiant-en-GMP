@@ -5,21 +5,6 @@ body {
   color: #333;
 }
 
-header h1 {
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 10px;
-  margin-bottom: 8px;
-}
-header r {
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 10px;
-  margin: 0;
-  transform: translateY(-10px);
-}
 header {
   height: 400px;
 
@@ -33,6 +18,9 @@ header {
   align-items: center;
   padding-bottom: 30px;
   text-align: center;
+  background-image: url("images/header.jpg");
+  background-size: cover;
+  background-position: center;
 }
 .bubble {
   background: white;
@@ -59,6 +47,54 @@ header {
     flex-direction: column;
   }
 }
+.floating {
+  position: absolute;
+  width: 80px;
+  opacity: 0; /* invisible au début */
+}
+/* GAUCHE */
+.img1 { top: 80px; left: 5%; }
+.img2 { top: 200px; left: 10%; }
+.img5 { top: 320px; left: 15%; }
+.img6 { top: 440px; left: 20%; }
 
+/* DROITE */
+.img3 { top: 100px; right: 5%; }
+.img4 { top: 220px; right: 10%; }
+.img7 { top: 340px; right: 15%; }
+.img8 { top: 460px; right: 20%; }
 
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
+@keyframes slideInRight {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.left {
+  animation: slideInLeft 1s ease forwards;
+}
+
+.right {
+  animation: slideInRight 1s ease forwards;
+}
+
+.img1 { animation-delay: 0.2s; }
+.img2 { animation-delay: 0.4s; }
+.img3 { animation-delay: 0.6s; }
+.img4 { animation-delay: 0.8s; }
