@@ -56,7 +56,7 @@ header {
 }
 /* GAUCHE */
 .img1 { top: 100px; left: 1%; }
-.img5 { top: 175px; left: 15%; }
+.img5 { top: 120px; left: 15%; }
 .img2 { top: 20px; left: 7.5%; }
 .img6 { top: 250px; left: 12.5%; }
 /* DROITE */
@@ -68,14 +68,17 @@ header {
 .img1, .img5, img3 {
   z-index: 1;
 }
-.img2, .img6, .img4 {
+.img1 {
   z-index: 2;
 }
-.img7 {
+.img2, .img6, .img4 {
   z-index: 3;
 }
-.img8 {
+.img7 {
   z-index: 4;
+}
+.img8 {
+  z-index: 5;
 }
 @keyframes slideInLeft {
   from {
