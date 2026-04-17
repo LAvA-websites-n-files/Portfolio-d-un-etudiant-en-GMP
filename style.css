@@ -49,7 +49,7 @@ header {
 }
 .floating {
   position: absolute;
-  width: clamp(100px, 6vw, 250px);
+  width: clamp(250px, 6vw, 500px);
   opacity: 0; /* invisible au début */
 }
 /* GAUCHE */
