@@ -54,9 +54,9 @@ header {
 }
 /* GAUCHE */
 .img1 { top: 100px; left: 1%; }
-.img5 { top: 30px; left: 30%; }
-.img2 { top: 20px; left: 10%; }
-.img6 { top: 250px; left: 15%; }
+.img5 { top: 30px; left: 25%; }
+.img2 { top: 20px; left: 15%; }
+.img6 { top: 250px; left: 12.5%; }
 
 /* DROITE */
 .img3 { top: 10px; right: 1%; }
