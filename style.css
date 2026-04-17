@@ -53,16 +53,16 @@ header {
   opacity: 0; /* invisible au début */
 }
 /* GAUCHE */
-.img1 { top: 80px; left: 5%; }
-.img2 { top: 200px; left: 10%; }
-.img5 { top: 320px; left: 15%; }
-.img6 { top: 440px; left: 20%; }
+.img1 { top: 10px; left: 5%; }
+.img2 { top: 100px; left: 10%; }
+.img5 { top: 175px; left: 15%; }
+.img6 { top: 250px; left: 20%; }
 
 /* DROITE */
-.img3 { top: 100px; right: 5%; }
-.img4 { top: 220px; right: 10%; }
-.img7 { top: 340px; right: 15%; }
-.img8 { top: 460px; right: 20%; }
+.img3 { top: 10px; right: 5%; }
+.img4 { top: 100px; right: 10%; }
+.img7 { top: 175px; right: 15%; }
+.img8 { top: 250px; right: 20%; }
 
 @keyframes slideInLeft {
   from {
