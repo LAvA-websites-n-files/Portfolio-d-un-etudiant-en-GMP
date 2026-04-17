@@ -7,7 +7,6 @@ body {
 
 header {
   height: 400px;
-
   background-image: url("images/header.jpg");
   background-size: cover;
   background-position: center;
@@ -18,9 +17,10 @@ header {
   align-items: center;
   padding-bottom: 30px;
   text-align: center;
-  background-image: url("images/header.jpg");
   background-size: cover;
   background-position: center;
+  position: relative;
+  overflow: hidden;
 }
 .bubble {
   background: white;
