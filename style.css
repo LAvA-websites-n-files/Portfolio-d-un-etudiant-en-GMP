@@ -57,13 +57,24 @@ header {
 .img5 { top: 30px; left: 25%; }
 .img2 { top: 20px; left: 15%; }
 .img6 { top: 250px; left: 12.5%; }
-
 /* DROITE */
 .img3 { top: 10px; right: 1%; }
 .img4 { top: 200px; right: 10%; }
 .img7 { top: 10px; right: 12.5%; }
 .img8 { top: 250px; right: 15%; }
 
+.img1, .img5, img3 {
+  z-index: 1;
+}
+.img2, .img6, .img4 {
+  z-index: 2;
+}
+.img7 {
+  z-index: 3;
+}
+.img8 {
+  z-index: 4;
+}
 @keyframes slideInLeft {
   from {
     transform: translateX(-100px);
