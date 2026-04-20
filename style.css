@@ -88,9 +88,13 @@ header {
 .img7 {
   z-index: 4;
 }
-.img8, .img9 {
+.img8 {
   z-index: 5;
 }
+.img9 {
+  z-index: 6;
+}
+
 @keyframes slideInLeft {
   from {
     transform: translateX(-100px);
