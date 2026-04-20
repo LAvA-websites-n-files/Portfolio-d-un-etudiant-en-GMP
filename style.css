@@ -51,11 +51,11 @@ header {
   position: absolute;
   opacity: 0; /* invisible au début */
 }
-.img1, .img2, .img4, .img5, {
+
+.img1, .img2, .img4, .img5 {
   width: clamp(200px, 6vw, 350px);
 }
 
-}
 .img3, .img7, .img8, .img9 {
   width: clamp(300px, 6vw, 450px);
 }
