@@ -65,11 +65,11 @@ header {
 .img2 { top: 50px; left: 10px; }
 .img6 { top: -50px; left: 175px; }
 /* DROITE */
-.img3 { top: -50px; right: -50px; }
-.img4 { top: 250px; right: 50px; }
-.img7 { top: 10px; right: 125px; }
-.img8 { top: 250px; right: 150px; }
-.img9 { top: 20px; right: 180px; }
+.img3 { top: 0px; right: 0px; }
+.img4 { top: 250px; right: 25px; }
+.img7 { top: 100px; right: 75px; }
+.img8 { top: 250px; right: 200px; }
+.img9 { top: 10px; right: 200px; }
 
 .img5, .img4 {
   z-index: 1;
