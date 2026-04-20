@@ -71,7 +71,7 @@ header {
 .img1 { top: 200px; left: 10px; }
 .img5 { top: 175px; left: 250px; }
 .img2 { top: 50px; left: 10px; }
-.img6 { top: 10px; left: 125px; }
+.img6 { top: -50px; left: 175px; }
 /* DROITE */
 .img3 { top: 10px; right: 10px; }
 .img4 { top: 200px; right: 100px; }
