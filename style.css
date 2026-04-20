@@ -72,9 +72,9 @@ header {
 /* DROITE */
 .img3 { top: 0px; right: 0px; }
 .img4 { top: 250px; right: 25px; }
-.img7 { top: 100px; right: 75px; }
+.img7 { top: 50px; right: 100px; }
 .img8 { top: 250px; right: 200px; }
-.img9 { top: 50px; right: 500px; }
+.img9 { top: 150px; right: 300px; }
 
 .img5, .img4 {
   z-index: 1;
