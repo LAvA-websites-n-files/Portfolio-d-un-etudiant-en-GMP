@@ -51,11 +51,11 @@ header {
   position: absolute;
   opacity: 0; /* invisible au début */
 }
-.img1, .img2, .img4, .img5 {
+.img1, .img2, .img4, .img5, .img3, .img7, .img8, .img9 {
   width: clamp(200px, 6vw, 350px);
 }
 
-.img6, .img3, .img7, .img8, .img9 {
+.img6 {
     width: clamp(400px, 6vw, 600px);
   }
 
@@ -65,19 +65,19 @@ header {
 .img2 { top: 50px; left: 10px; }
 .img6 { top: -50px; left: 175px; }
 /* DROITE */
-.img3 { top: 10px; right: 10px; }
-.img4 { top: 200px; right: 100px; }
+.img3 { top: -50px; right: -50px; }
+.img4 { top: 250px; right: 50px; }
 .img7 { top: 10px; right: 125px; }
 .img8 { top: 250px; right: 150px; }
 .img9 { top: 20px; right: 180px; }
 
-.img5, .img3 {
+.img5, .img4 {
   z-index: 1;
 }
 .img1 {
   z-index: 2;
 }
-.img2, .img6, .img4 {
+.img2, .img6, .img3 {
   z-index: 3;
 }
 .img7 {
