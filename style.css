@@ -55,6 +55,11 @@ header {
   width: clamp(200px, 6vw, 350px);
 }
 
+}
+.img3, .img7, .img8, .img9 {
+  width: clamp(300px, 6vw, 450px);
+}
+
 .img6 {
     width: clamp(400px, 6vw, 600px);
   }
