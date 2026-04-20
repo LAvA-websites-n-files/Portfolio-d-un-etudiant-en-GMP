@@ -64,7 +64,7 @@ header {
 }
 
 .img3, .img4, .img7, .img8 {
-  right: clamp (10px, 5vw, 150px);
+  right: clamp(10px, 5vw, 150px);
 }
 
 /* GAUCHE */
