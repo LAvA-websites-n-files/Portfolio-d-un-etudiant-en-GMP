@@ -68,15 +68,15 @@ header {
 }
 
 /* GAUCHE */
-.img1 { top: 200px; left: 1%; }
-.img5 { top: 120px; left: 15%; }
-.img2 { top: 20px; left: 7.5%; }
+.img1 { top: 200px; left: 10px; }
+.img5 { top: 120px; left: 150px; }
+.img2 { top: 20px; left: 75px; }
 .img6 { top: 250px; left: 125px; }
 /* DROITE */
-.img3 { top: 10px; right: 1%; }
-.img4 { top: 200px; right: 10%; }
-.img7 { top: 10px; right: 12.5%; }
-.img8 { top: 250px; right: 15%; }
+.img3 { top: 10px; right: 10px; }
+.img4 { top: 200px; right: 100px; }
+.img7 { top: 10px; right: 125px; }
+.img8 { top: 250px; right: 150px; }
 
 .img5, .img3 {
   z-index: 1;
