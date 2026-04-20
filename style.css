@@ -51,13 +51,21 @@ header {
   position: absolute;
   opacity: 0; /* invisible au début */
 }
-.img1, .img2, img3 .img4, .img5, .img7, .img8 {
+.img1, .img2, .img3, .img4, .img5, .img7, .img8 {
   width: clamp(200px, 6vw, 350px);
 }
 
 .img6 {
     width: clamp(400px, 6vw, 600px);
   }
+
+.img1, .img2, .img5, .img6 {
+  left: clamp(10px, 5vw, 150px);
+}
+
+.img3, .img4, .img7, .img8 {
+  right: clamp (10px, 5vw, 150px);
+}
 
 /* GAUCHE */
 .img1 { top: 200px; left: 1%; }
