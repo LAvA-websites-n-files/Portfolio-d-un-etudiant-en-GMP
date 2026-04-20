@@ -83,7 +83,7 @@ header {
 .img7 {
   z-index: 4;
 }
-.img8 {
+.img8, .img9 {
   z-index: 5;
 }
 @keyframes slideInLeft {
