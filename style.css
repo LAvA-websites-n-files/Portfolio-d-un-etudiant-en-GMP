@@ -52,12 +52,6 @@ header {
   opacity: 0; /* invisible au début */
 }
 
-.img9 {
-  opacity: 1 !important;
-  z-index: 999;
-  border: 3px solid red;
-}
-
 .img1, .img2, .img4, .img5 {
   width: clamp(200px, 6vw, 350px);
 }
