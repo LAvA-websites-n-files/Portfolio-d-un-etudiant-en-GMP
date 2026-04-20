@@ -74,7 +74,7 @@ header {
 .img4 { top: 250px; right: 25px; }
 .img7 { top: 100px; right: 75px; }
 .img8 { top: 250px; right: 200px; }
-.img9 { top: 10px; right: 200px; }
+.img9 { top: 50px; right: 500px; }
 
 .img5, .img4 {
   z-index: 1;
