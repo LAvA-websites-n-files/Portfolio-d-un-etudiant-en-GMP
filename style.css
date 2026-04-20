@@ -70,11 +70,11 @@ header {
 .img2 { top: 50px; left: 10px; }
 .img6 { top: -50px; left: 175px; }
 /* DROITE */
-.img3 { top: 0px; right: 0px; }
+.img3 { top: -30px; right: -30px; }
 .img4 { top: 250px; right: 25px; }
-.img7 { top: 0px; right: 170px; }
+.img7 { top: 0px; right: 150px; }
 .img8 { top: 250px; right: 200px; }
-.img9 { top: 75px; right: 200px; }
+.img9 { top: 50px; right: 200px; }
 
 .img5, .img4 {
   z-index: 1;
