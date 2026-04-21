@@ -137,13 +137,11 @@ a:hover {
 }
 
 .floating {
+  position: absolute;
   transition: transform 0.3s ease;
 }
 
-.link-img {
-  display: inline-block;
-}
-
-.link-img:hover {
+.floating:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
