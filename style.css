@@ -136,7 +136,10 @@ header {
   transition: transform 0.3s ease;
 }
 
-a:hover .floating {
+.link-img {
+  display: inline-block;
+}
+
+.link-img:hover {
   transform: scale(1.1);
-  cursor: pointer;
 }
