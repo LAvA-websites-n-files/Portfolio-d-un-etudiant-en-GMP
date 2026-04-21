@@ -54,12 +54,24 @@ header {
   animation: fadeSlide 1s ease forwards;
   transition: transform 0.3s ease;
   will-change: transform;
+  transform-origin: center;
 }
 
 .floating img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.img-content {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.floating:hover .img-content {
+  transform: scale(1.08);
 }
 
 .left {
@@ -144,14 +156,4 @@ header {
 @keyframes slideInRight {
   from { transform: translateX(100px); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
-}
-
-.floating:hover {
-  transform: scale(1.08);
-  cursor: pointer;
-  z-index: 10;
-}
-
-.floating {
-  transform-origin: center;
 }
