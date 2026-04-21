@@ -128,12 +128,14 @@ header {
 .img8 { animation-delay: 0.8s; }
 .img9 { animation-delay: 1s; }
 
-.left {
-  animation: slideInLeft 1s ease forwards;
+@keyframes slideInLeft {
+  from { transform: translateX(-100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
 
-.right {
-  animation: slideInRight 1s ease forwards;
+@keyframes slideInRight {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
 
 .floating:hover {
