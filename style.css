@@ -135,6 +135,11 @@ header {
 .floating {
   position: absolute;
   transition: transform 0.3s ease;
+}
+
+.floating img {
+  width: 100%;
+  height: auto;
   display: block;
 }
 
