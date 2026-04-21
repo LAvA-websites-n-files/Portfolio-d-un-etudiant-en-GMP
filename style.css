@@ -56,18 +56,23 @@ header {
   transition: transform 0.3s ease;
 }
 
-.left .anim {
-  animation-name: slideInLeft;
-}
-
-.right .anim {
-  animation-name: slideInRight;
-}
-
 .floating img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.left {
+  animation: slideInLeft 1s ease forwards;
+}
+
+.right {
+  animation: slideInRight 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .img1, .img2, .img4, .img5 {
