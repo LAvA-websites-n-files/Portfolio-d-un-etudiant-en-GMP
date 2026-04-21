@@ -137,13 +137,13 @@ header {
   transition: transform 0.3s ease;
 }
 
-.floating img {
-  width: 100%;
-  height: auto;
+a.floating {
+  position: absolute;
+  transition: transform 0.3s ease;
   display: block;
 }
 
-.floating:hover {
+a.floating:hover {
   transform: scale(1.08);
   cursor: pointer;
 }
