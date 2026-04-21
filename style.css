@@ -54,6 +54,7 @@ header {
   opacity: 0;
   animation-fill-mode: forwards;
   transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 .floating img {
