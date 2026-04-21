@@ -50,9 +50,8 @@ header {
 .floating {
   position: absolute;
   display: block;
-  width: 120px; /* base propre */
   opacity: 0;
-  animation-fill-mode: forwards;
+  animation: fadeSlide 1s ease forwards;
   transition: transform 0.3s ease;
   will-change: transform;
 }
@@ -71,11 +70,16 @@ header {
   animation: slideInRight 1s ease forwards;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
 .img1, .img2, .img4, .img5 {
   width: clamp(200px, 6vw, 350px);
   height: auto;
@@ -145,6 +149,7 @@ header {
 .floating:hover {
   transform: scale(1.08);
   cursor: pointer;
+  z-index: 10;
 }
 
 .floating {
