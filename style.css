@@ -49,7 +49,10 @@ header {
 }
 .floating {
   position: absolute;
-  opacity: 0; /* invisible au début */
+  display: block;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  transition: transform 0.3s ease;
 }
 
 .img1, .img2, .img4, .img5 {
@@ -132,17 +135,12 @@ header {
 .img8 { animation-delay: 0.8s; }
 .img9 { animation-delay: 1s; }
 
-
-.floating {
-  position: absolute;
-  transition: transform 0.3s ease;
-  display: block;
+.left {
+  animation: slideInLeft 1s ease forwards;
 }
 
-.floating img {
-  width: 100%;
-  height: auto;
-  display: block;
+.right {
+  animation: slideInRight 1s ease forwards;
 }
 
 .floating:hover {
