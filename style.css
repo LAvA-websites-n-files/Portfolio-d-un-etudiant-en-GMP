@@ -132,11 +132,11 @@ header {
 .img8 { animation-delay: 0.8s; }
 .img9 { animation-delay: 1s; }
 
-.floating:hover {
-  transform: scale(1.1);
-  cursor: pointer;
+.floating {
+  transition: transform 0.3s ease;
 }
 
-.floating {
-  transition: transform 0.3s;
+a:hover .floating {
+  transform: scale(1.1);
+  cursor: pointer;
 }
