@@ -108,6 +108,16 @@ header {
   z-index: 5;
 }
 
+.left {
+  animation: slideInLeft 1s ease forwards;
+  opacity: 1;
+}
+
+.right {
+  animation: slideInRight 1s ease forwards;
+  opacity: 1;
+}
+
 .img1 { animation-delay: 0.2s; }
 .img2 { animation-delay: 0.4s; }
 .img3 { animation-delay: 0.2s; }
