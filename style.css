@@ -145,3 +145,7 @@ header {
   transform: scale(1.08);
   cursor: pointer;
 }
+
+.floating {
+  transform-origin: center;
+}
