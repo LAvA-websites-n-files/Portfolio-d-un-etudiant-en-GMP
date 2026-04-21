@@ -56,6 +56,14 @@ header {
   transition: transform 0.3s ease;
 }
 
+.left .anim {
+  animation-name: slideInLeft;
+}
+
+.right .anim {
+  animation-name: slideInRight;
+}
+
 .floating img {
   width: 100%;
   height: auto;
@@ -106,16 +114,6 @@ header {
 }
 .img8, .img9 {
   z-index: 5;
-}
-
-.left {
-  animation: slideInLeft 1s ease forwards;
-  opacity: 1;
-}
-
-.right {
-  animation: slideInRight 1s ease forwards;
-  opacity: 1;
 }
 
 .img1 { animation-delay: 0.2s; }
