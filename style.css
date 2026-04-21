@@ -132,18 +132,20 @@ header {
 .img8 { animation-delay: 0.8s; }
 .img9 { animation-delay: 1s; }
 
-.floating {
-  position: absolute;
-  transition: transform 0.3s ease;
-}
 
-a.floating {
+.floating {
   position: absolute;
   transition: transform 0.3s ease;
   display: block;
 }
 
-a.floating:hover {
+.floating img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.floating:hover {
   transform: scale(1.08);
   cursor: pointer;
 }
