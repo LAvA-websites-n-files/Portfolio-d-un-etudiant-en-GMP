@@ -6,6 +6,34 @@
   <title>Portfolio d'un étudiant en GMP</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
+<script>
+const skills = document.querySelectorAll(".skill");
+
+window.addEventListener("scroll", () => {
+  skills.forEach(skill => {
+    const rect = skill.getBoundingClientRect();
+    const items = skill.querySelectorAll(".item");
+
+    // zone d’activation (milieu écran)
+    if (rect.top < window.innerHeight * 0.7 && rect.bottom > 0) {
+      
+      items.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add("show");
+        }, index * 150);
+      });
+
+    } else {
+      // replie quand on sort
+      items.forEach(item => {
+        item.classList.remove("show");
+      });
+    }
+  });
+});
+</script>
+      
 <body>
 
   <!-- En-tête -->
