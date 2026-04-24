@@ -8,37 +8,6 @@
 </head>
 
 <body>
-
-  <script>
-const skills = document.querySelectorAll(".skill");
-
-window.addEventListener("scroll", () => {
-  skills.forEach(skill => {
-    const rect = skill.getBoundingClientRect();
-    const items = skill.querySelectorAll(".item");
-
-    // zone d’activation (milieu écran)
-    if (rect.top < window.innerHeight * 0.7 && rect.bottom > 0) {
-      
-      items.forEach((item, index) => {
-        setTimeout(() => {
-          item.classList.add("show");
-        }, index * 150);
-      });
-
-    } else {
-      // replie quand on sort
-      items.forEach(item => {
-        item.classList.remove("show");
-      });
-    }
-  });
-});
-</script>
-
-</body>
-  
-
   <!-- En-tête -->
   <header>
     
@@ -139,6 +108,34 @@ window.addEventListener("scroll", () => {
   <footer>
     <p>© 2025 - Portfolio d'un étudiant en GMP</p>
   </footer>
+
+  
+  <script>
+const skills = document.querySelectorAll(".compétence");
+
+window.addEventListener("scroll", () => {
+  skills.forEach(compétence => {
+    const rect = compétence.getBoundingClientRect();
+    const items = compétence.querySelectorAll(".item");
+
+    // zone d’activation (milieu écran)
+    if (rect.top < window.innerHeight * 0.7 && rect.bottom > 0) {
+      
+      items.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add("show");
+        }, index * 150);
+      });
+
+    } else {
+      // replie quand on sort
+      items.forEach(item => {
+        item.classList.remove("show");
+      });
+    }
+  });
+});
+</script>
 
 </body>
 
