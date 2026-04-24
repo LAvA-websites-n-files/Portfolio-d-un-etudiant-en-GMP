@@ -37,13 +37,42 @@ header {
   box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 .compétences {
-  display: flex;
-  gap: 20px; /* espace entre les projets */
-  justify-content: space-between;
+  width: 300px;
+  margin-left: 20px;
 }
 .compétence {
-  flex: 1;
+  margin-bottom: 80px;
 }
+
+.skill-title {
+  background: #1e1e1e;
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+.skill-items {
+  margin-top: 10px;
+}
+
+.item {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.4s ease;
+  margin: 5px 0;
+  background: #2a2a2a;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* visible */
+.item.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 @media (max-width: 700px) {
   .compétences {
     flex-direction: column;
