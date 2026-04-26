@@ -165,33 +165,53 @@
 const skills = document.querySelectorAll(".skill");
 
 window.addEventListener("scroll", () => {
-  const screenHeight = window.innerHeight;
+  const screenMiddle = window.innerHeight / 2;
 
+  let activeSkill = null;
+  let closestDistance = Infinity;
+
+  // 🔍 trouver la skill la plus proche du centre
   skills.forEach(skill => {
     const rect = skill.getBoundingClientRect();
+    const skillCenter = rect.top + rect.height / 2;
+    const distance = Math.abs(screenMiddle - skillCenter);
+
+    if (distance < closestDistance) {
+      closestDistance = distance;
+      activeSkill = skill;
+    }
+  });
+
+  // 🎯 appliquer l'effet seulement à la skill active
+  skills.forEach(skill => {
     const items = skill.querySelectorAll(".sub-item");
 
-    const progress = (screenHeight - rect.top) / (screenHeight + rect.height);
+    if (skill === activeSkill) {
+      const rect = skill.getBoundingClientRect();
+      const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
 
-    const visibleCount = 1; // 👈 nombre d'items visibles en même temps
+      const visibleCount = 3;
+      const total = items.length;
 
-    const total = items.length;
+      let startIndex = Math.floor(progress * total);
+      startIndex = Math.max(0, Math.min(total - visibleCount, startIndex));
 
-    // index de départ de la "fenêtre"
-    let startIndex = Math.floor(progress * total);
+      items.forEach((item, index) => {
+        if (index >= startIndex && index < startIndex + visibleCount) {
+          item.classList.add("show");
+        } else {
+          item.classList.remove("show");
+        }
+      });
 
-    // clamp
-    startIndex = Math.max(0, Math.min(total - visibleCount, startIndex));
-
-    items.forEach((item, index) => {
-      if (index >= startIndex && index < startIndex + visibleCount) {
-        item.classList.add("show");
-      } else {
-        item.classList.remove("show");
-      }
-    });
+    } else {
+      // ❌ toutes les autres skills sont repliées
+      items.forEach(item => item.classList.remove("show"));
+    }
   });
 });
+skill.classList.toggle("active", skill === activeSkill);
+
 </script>
 
 </body>
