@@ -166,22 +166,25 @@ const skills = document.querySelectorAll(".skill");
 
 window.addEventListener("scroll", () => {
   const screenHeight = window.innerHeight;
-  const triggerLine = screenHeight * 0.5; // milieu écran
 
   skills.forEach(skill => {
     const rect = skill.getBoundingClientRect();
     const items = skill.querySelectorAll(".sub-item");
 
-    // distance du haut de la skill au centre écran
-    const distance = triggerLine - rect.top;
+    const progress = (screenHeight - rect.top) / (screenHeight + rect.height);
 
-    // progression (0 → 1)
-    const progress = distance / rect.height;
+    const visibleCount = 5; // 👈 nombre d'items visibles en même temps
+
+    const total = items.length;
+
+    // index de départ de la "fenêtre"
+    let startIndex = Math.floor(progress * total);
+
+    // clamp
+    startIndex = Math.max(0, Math.min(total - visibleCount, startIndex));
 
     items.forEach((item, index) => {
-      const step = (index + 1) / items.length;
-
-      if (progress > step) {
+      if (index >= startIndex && index < startIndex + visibleCount) {
         item.classList.add("show");
       } else {
         item.classList.remove("show");
