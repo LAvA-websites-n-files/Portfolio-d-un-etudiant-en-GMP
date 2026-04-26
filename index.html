@@ -162,6 +162,7 @@
 
   
   <script>
+
 const skills = document.querySelectorAll(".skill");
 
 window.addEventListener("scroll", () => {
@@ -170,11 +171,11 @@ window.addEventListener("scroll", () => {
   let activeSkill = null;
   let closestDistance = Infinity;
 
-  // 🔍 trouver la skill la plus proche du centre
+  // 🔍 Trouver la skill la plus proche du centre
   skills.forEach(skill => {
     const rect = skill.getBoundingClientRect();
-    const skillCenter = rect.top + rect.height / 2;
-    const distance = Math.abs(screenMiddle - skillCenter);
+    const center = rect.top + rect.height / 2;
+    const distance = Math.abs(screenMiddle - center);
 
     if (distance < closestDistance) {
       closestDistance = distance;
@@ -182,18 +183,21 @@ window.addEventListener("scroll", () => {
     }
   });
 
-  // 🎯 appliquer l'effet seulement à la skill active
   skills.forEach(skill => {
     const items = skill.querySelectorAll(".sub-item");
 
     if (skill === activeSkill) {
-      const rect = skill.getBoundingClientRect();
-      const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
 
-      const visibleCount = 1;
+      const rect = skill.getBoundingClientRect();
+
+      // progression propre entre 0 → 1
+      const progress = (screenMiddle - rect.top) / rect.height;
+
+      const visibleCount = 2;
       const total = items.length;
 
       let startIndex = Math.floor(progress * total);
+
       startIndex = Math.max(0, Math.min(total - visibleCount, startIndex));
 
       items.forEach((item, index) => {
@@ -205,13 +209,12 @@ window.addEventListener("scroll", () => {
       });
 
     } else {
-      // ❌ toutes les autres skills sont repliées
+      // 🔒 tout est replié
       items.forEach(item => item.classList.remove("show"));
     }
   });
 });
-skill.classList.toggle("active", skill === activeSkill);
-
+    
 </script>
 
 </body>
