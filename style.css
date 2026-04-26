@@ -79,6 +79,10 @@ header {
   margin-top: 10px;
 }
 
+.scroll-end {
+  height: 60vh;
+}
+
 .sub-item {
   opacity: 0;
   transform: translateX(50px);
