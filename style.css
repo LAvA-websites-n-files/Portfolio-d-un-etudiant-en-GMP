@@ -6,6 +6,12 @@ body {
   background-color: black;
 }
 
+body::after {
+  content: "";
+  display: block;
+  height: 50vh;
+}
+
 header {
   height: 400px;
   background-image: url("images/header.jpg");
@@ -48,7 +54,6 @@ header {
   display: flex;
   align-items: stretch; /* 🔥 IMPORTANT */
   gap: 20px;
-  min-height: 100vh;
 }
 
 .skill-main {
