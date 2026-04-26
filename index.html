@@ -149,24 +149,20 @@
 
   
   <script>
-const skills = document.querySelectorAll(".compétence");
+const skills = document.querySelectorAll(".skill");
 
 window.addEventListener("scroll", () => {
-  skills.forEach(compétence => {
-    const rect = compétence.getBoundingClientRect();
-    const items = compétence.querySelectorAll(".item");
+  skills.forEach(skill => {
+    const rect = skill.getBoundingClientRect();
+    const items = skill.querySelectorAll(".sub-item");
 
-    // zone d’activation (milieu écran)
     if (rect.top < window.innerHeight * 0.7 && rect.bottom > 0) {
-      
       items.forEach((item, index) => {
         setTimeout(() => {
           item.classList.add("show");
         }, index * 150);
       });
-
     } else {
-      // replie quand on sort
       items.forEach(item => {
         item.classList.remove("show");
       });
