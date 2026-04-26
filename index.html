@@ -190,7 +190,7 @@ window.addEventListener("scroll", () => {
       const rect = skill.getBoundingClientRect();
       const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
 
-      const visibleCount = 3;
+      const visibleCount = 1;
       const total = items.length;
 
       let startIndex = Math.floor(progress * total);
