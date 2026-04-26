@@ -36,16 +36,34 @@ header {
   transform: translateY(-5px);
   box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
-.compétences {
-  width: 300px;
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
   margin-left: 20px;
 }
-.compétence {
-  margin-bottom: 80px;
-  min-height: 100vh;
+
+.skill {
+  display: flex;
+  align-items: stretch; /* 🔥 IMPORTANT */
+  gap: 20px;
+}
+
+.skill-main {
+  background: #1e1e1e;
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.skill-sub {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 10px;
 }
 
 .skill-title {
@@ -60,19 +78,17 @@ header {
   margin-top: 10px;
 }
 
-.item {
+.sub-item {
   opacity: 0;
-  transform: translateX(-30px);
+  transform: translateX(50px);
   transition: all 0.4s ease;
-  margin: 5px 0;
   background: #2a2a2a;
   color: white;
   padding: 10px;
   border-radius: 10px;
 }
 
-/* visible */
-.item.show {
+.sub-item.show {
   opacity: 1;
   transform: translateX(0);
 }
