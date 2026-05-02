@@ -83,20 +83,6 @@ header {
   width: 65%;
 }
 
-/* sous-compétences */
-.skill-sub {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 65%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-  padding: 20px;
-}
-
 /* items cachés */
 .sub-item {
   background: #2a2a2a;
