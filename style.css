@@ -48,6 +48,7 @@ header {
   gap: 20px;
   align-items: flex-start; /* 🔥 IMPORTANT : alignement en haut */
   position: relative;
+  overflow: visible;
 }
 
 /* bloc principal */
@@ -68,7 +69,8 @@ header {
 .skill-sub {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
 
   display: flex;
   flex-direction: column;
@@ -76,11 +78,6 @@ header {
 
   opacity: 0;
   pointer-events: none;
-  padding-top: 30px; /* 🔥 aligne visuellement avec le padding de la bulle */
-  padding-bottom: 30px;
-  top: 50%;
-  transform: translateY(-50%);
-}
 }
 
 /* quand ouvert */
