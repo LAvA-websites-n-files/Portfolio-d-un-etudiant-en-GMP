@@ -205,13 +205,16 @@ skill.style.minHeight = finalHeight + "px";
       skill.classList.add("active");
 
       // 👉 déplacement dynamique basé sur largeur réelle
-      const containerWidth = skill.offsetWidth;
+const sub = skill.querySelector(".skill-sub");
 
-      const screenWidth = window.innerWidth;
+// largeur réelle du bloc de sous-compétences
+const subWidth = sub.scrollWidth;
 
-      const shift = screenWidth - main.offsetWidth - maxWidth - 100;
+// marge propre
+const shift = subWidth + 40;
 
-      const subItems = skill.querySelectorAll(".sub-item");
+// déplacement
+main.style.transform = `translateX(-${shift}px)`;
 
 let maxSubWidth = 0;
 
