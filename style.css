@@ -46,29 +46,25 @@ header {
 .skills {
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: =30px;
   margin-left: 20px;
 }
 
+/* conteneur */
 .skill {
-  display: flex;
-  align-items: stretch; /* 🔥 IMPORTANT */
-  gap: 20px;
-  opacity: 1;
-  transition: opacity 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.skill.active {
-  opacity: 1;
-}
-
+/* bulle principale */
 .skill-main {
   background: #1e1e1e;
   color: white;
-  padding: 20px;
-  border-radius: 15px;
-  width: 300px;
-  flex-shrink: 0;
+  padding: 30px;
+  border-radius: 20px;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.5s ease;
 }
 
 .skill-sub {
@@ -78,42 +74,47 @@ header {
   gap: 10px;
 }
 
-.skill-title {
-  background: #1e1e1e;
-  color: white;
+/* état actif */
+.skill.active .skill-main {
+  transform: translateX(70%);
+}
+
+/* sous-compétences */
+.skill-sub {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
   padding: 20px;
-  border-radius: 15px;
-  font-weight: bold;
 }
 
-.skill-items {
-  margin-top: 10px;
-}
-
-.scroll-end {
-  height: 60vh;
-}
-
+/* items cachés */
 .sub-item {
-  opacity: 0;
-  transform: translateX(50px) translateY(10px);
-  transition: all 0.4s ease;
   background: #2a2a2a;
-  color: white;
   padding: 10px;
   border-radius: 10px;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.4s ease;
 }
 
-.sub-item.show {
+/* animation d'apparition */
+.skill.active .sub-item {
   opacity: 1;
-  transform: translateX(0) translateY(0);
+  transform: translateX(0);
 }
 
-@media (max-width: 700px) {
-  .compétences {
-    flex-direction: column;
-  }
-}
+/* effet cascade */
+.skill.active .sub-item:nth-child(1) { transition-delay: 0.1s; }
+.skill.active .sub-item:nth-child(2) { transition-delay: 0.2s; }
+.skill.active .sub-item:nth-child(3) { transition-delay: 0.3s; }
+.skill.active .sub-item:nth-child(4) { transition-delay: 0.4s; }
+
 .floating {
   position: absolute;
   display: block;
