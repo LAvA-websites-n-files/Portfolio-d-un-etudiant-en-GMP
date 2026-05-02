@@ -160,21 +160,24 @@
     <p>© 2025 - Portfolio d'un étudiant en GMP</p>
   </footer>
 
-  <script>
+<script>
 const skills = document.querySelectorAll(".skill");
 
 skills.forEach(skill => {
   const main = skill.querySelector(".skill-main");
 
   main.addEventListener("click", () => {
+    
+    // toggle → ouvre / ferme
+    const isActive = skill.classList.contains("active");
 
-    // ferme les autres
-    skills.forEach(s => {
-      if (s !== skill) s.classList.remove("active");
-    });
+    // ferme tout
+    skills.forEach(s => s.classList.remove("active"));
 
-    // toggle celle cliquée
-    skill.classList.toggle("active");
+    // si c'était fermé → ouvre
+    if (!isActive) {
+      skill.classList.add("active");
+    }
   });
 });
 </script>
