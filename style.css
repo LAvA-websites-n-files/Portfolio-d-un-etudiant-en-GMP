@@ -46,7 +46,7 @@ header {
 .skill {
   display: flex;
   gap: 20px;
-  align-items: stretch;
+  align-items: flex-start; /* 🔥 IMPORTANT : alignement en haut */
 }
 
 /* bloc principal */
@@ -71,9 +71,11 @@ header {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
   transition: width 0.5s ease;
+  padding-top: 30px; /* 🔥 aligne visuellement avec le padding de la bulle */
+  padding-bottom: 30px;
 }
 
 /* quand ouvert */
