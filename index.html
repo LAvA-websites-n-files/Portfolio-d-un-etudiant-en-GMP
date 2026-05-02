@@ -160,63 +160,21 @@
     <p>© 2025 - Portfolio d'un étudiant en GMP</p>
   </footer>
 
-  
   <script>
-
 const skills = document.querySelectorAll(".skill");
 
-window.addEventListener("scroll", () => {
-  const screenMiddle = window.innerHeight / 2;
+skills.forEach(skill => {
+  const main = skill.querySelector(".skill-main");
 
-  let activeSkill = null;
-  let closestDistance = Infinity;
+  main.addEventListener("click", () => {
 
-  // 🔍 Trouver la skill la plus proche du centre
-  skills.forEach(skill => {
-    const rect = skill.getBoundingClientRect();
-    const center = rect.top + rect.height / 2;
-    const distance = Math.abs(screenMiddle - center);
+    // ferme les autres
+    skills.forEach(s => {
+      if (s !== skill) s.classList.remove("active");
+    });
 
-    if (distance < closestDistance) {
-      closestDistance = distance;
-      activeSkill = skill;
-    }
-  });
-
-  skills.forEach(skill => {
-    const items = skill.querySelectorAll(".sub-item");
-
-    if (skill === activeSkill) {
-
-      const rect = skill.getBoundingClientRect();
-
-      // progression propre entre 0 → 1
-      const progress = (screenMiddle - rect.top) / rect.height;
-
-      const visibleCount = 2;
-      const total = items.length;
-
-      let startIndex = Math.floor(progress * total);
-
-      startIndex = Math.max(0, Math.min(total - visibleCount, startIndex));
-
-      items.forEach((item, index) => {
-        if (index >= startIndex && index < startIndex + visibleCount) {
-          item.classList.add("show");
-        } else {
-          item.classList.remove("show");
-        }
-      });
-
-    } else {
-      // 🔒 tout est replié
-      items.forEach(item => item.classList.remove("show"));
-    }
+    // toggle celle cliquée
+    skill.classList.toggle("active");
   });
 });
-    
 </script>
-
-</body>
-
-</html>
