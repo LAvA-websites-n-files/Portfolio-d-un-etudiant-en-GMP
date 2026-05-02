@@ -43,20 +43,13 @@ header {
   box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
-.skills {
-  display: flex;
-  flex-direction: column;
-  gap: =30px;
-  margin-left: 20px;
-}
-
-/* conteneur */
 .skill {
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
 }
 
-/* bulle principale */
+/* bloc principal */
 .skill-main {
   background: #1e1e1e;
   color: white;
@@ -64,19 +57,28 @@ header {
   border-radius: 20px;
   width: 100%;
   cursor: pointer;
-  transition: transform 0.5s ease;
+  transition: all 0.5s ease;
 }
 
+/* état ouvert */
+.skill.active .skill-main {
+  width: 35%;
+}
+
+/* sous-compétences */
 .skill-sub {
+  width: 0;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
+  transition: width 0.5s ease;
 }
 
-/* état actif */
-.skill.active .skill-main {
-  transform: translateX(70%);
+/* quand ouvert */
+.skill.active .skill-sub {
+  width: 65%;
 }
 
 /* sous-compétences */
