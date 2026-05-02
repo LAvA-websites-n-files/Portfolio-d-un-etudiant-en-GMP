@@ -165,18 +165,43 @@ const skills = document.querySelectorAll(".skill");
 
 skills.forEach(skill => {
   const main = skill.querySelector(".skill-main");
+  const sub = skill.querySelector(".skill-sub");
+  const items = skill.querySelectorAll(".sub-item");
 
+  // 👉 1. calcul largeur max des sous-compétences
+  let maxWidth = 0;
+
+  items.forEach(item => {
+    item.style.width = "auto"; // reset
+    const width = item.offsetWidth;
+    if (width > maxWidth) maxWidth = width;
+  });
+
+  // applique largeur uniforme
+  items.forEach(item => {
+    item.style.width = maxWidth + "px";
+  });
+
+  // 👉 2. adapte la hauteur de la skill
+  const totalHeight = sub.scrollHeight;
+  skill.style.minHeight = totalHeight + "px";
+
+  // 👉 3. interaction clic
   main.addEventListener("click", () => {
-    
-    // toggle → ouvre / ferme
+
     const isActive = skill.classList.contains("active");
 
-    // ferme tout
-    skills.forEach(s => s.classList.remove("active"));
+    // reset tout
+    skills.forEach(s => {
+      s.classList.remove("active");
+      s.querySelector(".skill-main").style.transform = "translateX(0)";
+    });
 
-    // si c'était fermé → ouvre
     if (!isActive) {
       skill.classList.add("active");
+
+      // 👉 déplacement dynamique basé sur largeur réelle
+      main.style.transform = `translateX(${maxWidth + 40}px)`;
     }
   });
 });
