@@ -211,7 +211,18 @@ skill.style.minHeight = finalHeight + "px";
 
       const shift = screenWidth - main.offsetWidth - maxWidth - 100;
 
-      main.style.transform = "translateX(calc(50%))";
+      const subItems = skill.querySelectorAll(".sub-item");
+
+let maxSubWidth = 0;
+
+subItems.forEach(item => {
+  const w = item.offsetWidth;
+  if (w > maxSubWidth) maxSubWidth = w;
+});
+
+const shift = maxSubWidth + 40;
+
+main.style.transform = `translateX(${shift}px)`;
     }
   });
 });
