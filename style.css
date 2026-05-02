@@ -59,16 +59,9 @@ header {
   width: 100%;
   cursor: pointer;
   transition: all 0.5s ease;
-}
-
-.skill-main {
   transition: transform 0.5s ease;
   position: relative;
   z-index: 2;
-}
-
-.skill.active .skill-main {
-  transform: translateX(300px); /* distance fixe = stable */
 }
 
 /* sous-compétences */
@@ -85,11 +78,13 @@ header {
   pointer-events: none;
   padding-top: 30px; /* 🔥 aligne visuellement avec le padding de la bulle */
   padding-bottom: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 }
 
 /* quand ouvert */
 .skill.active .skill-sub {
-  width: 65%;
   opacity: 1;
   pointer-events: auto;
 }
