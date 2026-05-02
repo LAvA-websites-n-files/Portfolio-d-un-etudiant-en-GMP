@@ -205,8 +205,12 @@ skill.style.minHeight = finalHeight + "px";
       skill.classList.add("active");
 
       // 👉 déplacement dynamique basé sur largeur réelle
-      main.style.transform = "translateX(40px)";
-      main.style.width = `calc(100% - ${maxWidth + 80}px)`;
+      const containerWidth = skill.offsetWidth;
+
+      const shift = containerWidth - maxWidth - main.offsetWidth - 40;
+      const finalShift = Math.max(40, shift);
+
+      main.style.transform = `translateX(${finalShift}px)`;
     }
   });
 });
