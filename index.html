@@ -207,10 +207,11 @@ skill.style.minHeight = finalHeight + "px";
       // 👉 déplacement dynamique basé sur largeur réelle
       const containerWidth = skill.offsetWidth;
 
-      const shift = containerWidth - maxWidth - main.offsetWidth - 40;
-      const finalShift = Math.max(40, shift);
+      const screenWidth = window.innerWidth;
 
-      main.style.transform = `translateX(${finalShift}px)`;
+      const shift = screenWidth - main.offsetWidth - maxWidth - 20;
+
+      main.style.transform = `translateX(${shift}px)`;
     }
   });
 });
