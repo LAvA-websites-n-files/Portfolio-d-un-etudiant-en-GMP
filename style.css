@@ -60,9 +60,12 @@ header {
   transition: all 0.5s ease;
 }
 
-/* état ouvert */
+.skill-main {
+  transition: transform 0.5s ease;
+}
+
 .skill.active .skill-main {
-  width: 35%;
+  transform: translateX(60%);
 }
 
 /* sous-compétences */
@@ -88,22 +91,24 @@ header {
   background: #2a2a2a;
   padding: 10px;
   border-radius: 10px;
+
   opacity: 0;
-  transform: translateX(100px);
-  transition: all 0.4s ease;
+  transform: translateX(100px); /* démarre à droite */
 }
 
 /* animation d'apparition */
 .skill.active .sub-item {
   opacity: 1;
   transform: translateX(0);
+  transition: all 0.4s ease;
 }
 
 /* effet cascade */
-.skill.active .sub-item:nth-child(1) { transition-delay: 0.1s; }
-.skill.active .sub-item:nth-child(2) { transition-delay: 0.2s; }
-.skill.active .sub-item:nth-child(3) { transition-delay: 0.3s; }
-.skill.active .sub-item:nth-child(4) { transition-delay: 0.4s; }
+.skill.active .sub-item:nth-child(1) { transition-delay: 0.5s; }
+.skill.active .sub-item:nth-child(2) { transition-delay: 0.6s; }
+.skill.active .sub-item:nth-child(3) { transition-delay: 0.7s; }
+.skill.active .sub-item:nth-child(4) { transition-delay: 0.8s; }
+.skill.active .sub-item:nth-child(5) { transition-delay: 0.9s; }
 
 .floating {
   position: absolute;
