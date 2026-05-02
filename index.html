@@ -183,8 +183,12 @@ skills.forEach(skill => {
   });
 
   // 👉 2. adapte la hauteur de la skill
-  const totalHeight = sub.scrollHeight;
-  skill.style.minHeight = totalHeight + "px";
+const mainHeight = main.offsetHeight;
+const subHeight = sub.scrollHeight;
+
+const finalHeight = Math.max(mainHeight, subHeight);
+
+skill.style.minHeight = finalHeight + "px";
 
   // 👉 3. interaction clic
   main.addEventListener("click", () => {
@@ -201,7 +205,8 @@ skills.forEach(skill => {
       skill.classList.add("active");
 
       // 👉 déplacement dynamique basé sur largeur réelle
-      main.style.transform = `translateX(${maxWidth + 40}px)`;
+      main.style.transform = "translateX(40px)";
+      main.style.width = `calc(100% - ${maxWidth + 80}px)`;
     }
   });
 });
