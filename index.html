@@ -201,37 +201,32 @@ skill.style.minHeight = finalHeight + "px";
   s.querySelector(".skill-main").style.transform = "";
 });
 
-    if (!isActive) {
-      skill.classList.add("active");
+if (!isActive) {
+  skill.classList.add("active");
 
-const sub = skill.querySelector(".skill-sub");
+  const subWidth = sub.scrollWidth;
+  const screenWidth = window.innerWidth;
+  const mainWidth = main.offsetWidth;
 
-const subWidth = sub.scrollWidth;
+  // marges
+  const marginRight = 20;
+  const gap = 10;
 
-const screenWidth = window.innerWidth;
+  // position actuelle
+  const rect = main.getBoundingClientRect();
 
-// largeur de la bulle principale
-const mainWidth = main.offsetWidth;
+  // calcul déplacement vers la droite
+  const shiftToEdge = screenWidth - rect.left - mainWidth - marginRight;
 
-// largeur bloc sous-compétences
-const subWidth = sub.scrollWidth;
+  // déplacement idéal pour laisser la place aux sous-compétences
+  const idealShift = subWidth + gap;
 
-// marges
-const marginRight = 20; // espace entre bulle et bord écran
-const gap = 10;         // espace entre bulle et sous-compétences
+  // on prend le plus petit
+  const finalShift = Math.min(shiftToEdge, idealShift);
 
-// calcul du déplacement
-const shift = screenWidth - mainWidth - marginRight - (main.getBoundingClientRect().left);
-
-// MAIS on limite pour garder 10px avec les sous-compétences
-const idealShift = subWidth + gap;
-
-// on prend le plus petit des deux
-const finalShift = Math.min(shift, idealShift);
-
-// déplacement
-main.style.transform = `translateX(${finalShift}px)`;
-    }
+  // déplacement
+  main.style.transform = `translateX(${finalShift}px)`;
+}
   });
 });
 </script>
