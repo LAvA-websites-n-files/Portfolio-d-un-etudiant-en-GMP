@@ -206,32 +206,12 @@ skill.style.minHeight = finalHeight + "px";
 
 const sub = skill.querySelector(".skill-sub");
 
-// largeur réelle des sous-compétences
 const subWidth = sub.scrollWidth;
 
-// position actuelle de la bulle
-const rect = main.getBoundingClientRect();
+// déplacement simple et cohérent
+const shift = subWidth + 60;
 
-// espace disponible à droite
-const spaceRight = window.innerWidth - rect.right;
-
-// combien il faut bouger pour laisser la place aux sous-compétences
-let shift = subWidth + 40;
-
-// si pas assez de place → on limite
-if (shift > rect.left + spaceRight) {
-  shift = rect.left + spaceRight - 20;
-}
-
-// déplacement
 main.style.transform = `translateX(${shift}px)`;
-
-let maxSubWidth = 0;
-
-subItems.forEach(item => {
-  const w = item.offsetWidth;
-  if (w > maxSubWidth) maxSubWidth = w;
-});
     }
   });
 });
