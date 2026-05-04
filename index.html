@@ -204,33 +204,37 @@ skill.style.minHeight = finalHeight + "px";
 if (!isActive) {
   skill.classList.add("active");
 
-  const subWidth = sub.scrollWidth;
-  const screenWidth = window.innerWidth;
-  const mainWidth = main.offsetWidth;
+const rect = main.getBoundingClientRect();
 
-  // marges
-  const marginRight = 20;
-  const gap = 10;
+// largeur écran réelle
+const viewportWidth = document.documentElement.clientWidth;
 
-  // position actuelle
-  const rect = main.getBoundingClientRect();
+// largeur sous-compétences
+const subWidth = sub.scrollWidth;
 
-  // calcul déplacement vers la droite
-  const shiftToEdge = screenWidth - rect.left - mainWidth - marginRight;
+// marges
+const marginRight = 20;
+const gap = 20;
 
-  // déplacement idéal pour laisser la place aux sous-compétences
-  const idealShift = subWidth + gap;
+// position max autorisée (collé à droite)
+const maxRight = viewportWidth - marginRight;
 
-// on veut aller au MAX à droite
-let finalShift = shiftToEdge;
+// position actuelle droite
+const currentRight = rect.right;
 
-// MAIS on s'assure de laisser 10px avec les sous-compétences
-if (finalShift < idealShift) {
-  finalShift = idealShift;
-}
+// combien on peut avancer sans dépasser l'écran
+const maxShift = maxRight - currentRight;
 
-// déplacement
-main.style.transform = `translateX(${finalShift}px)`;
+// combien on DOIT avancer pour laisser la place aux sous-compétences
+const neededShift = subWidth + gap;
+
+// on prend la valeur SAFE
+const finalShift = Math.min(maxShift, neededShift);
+
+// sécurité anti négatif
+const safeShift = Math.max(0, finalShift);
+
+main.style.transform = `translateX(${safeShift}px)`;
 }
   });
 });
