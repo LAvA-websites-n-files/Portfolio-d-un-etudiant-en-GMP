@@ -189,16 +189,27 @@ skills.forEach(skill => {
 main.addEventListener("click", () => {
   const isActive = skill.classList.contains("active");
 
-  // reset tout
+  // reset global
   skills.forEach(s => {
     s.classList.remove("active");
     s.querySelector(".skill-main").style.transform = "";
   });
 
-  // toggle propre
-  if (!isActive) {
-    skill.classList.add("active");
-  }
+  if (isActive) return;
+
+  skill.classList.add("active");
+
+  // 1. calcul déplacement (simple et stable)
+  const subWidth = sub.scrollWidth;
+  const shift = subWidth + 20;
+
+  // 2. déplacement de la bulle principale
+  main.style.transform = `translateX(${shift}px)`;
+
+  // 3. délai = attendre fin animation déplacement
+  setTimeout(() => {
+    skill.classList.add("show-sub");
+  }, 500); // doit matcher transition CSS
 });
 });
 </script>
