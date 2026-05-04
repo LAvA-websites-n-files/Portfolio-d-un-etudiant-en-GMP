@@ -204,19 +204,24 @@ skill.style.minHeight = finalHeight + "px";
     if (!isActive) {
       skill.classList.add("active");
 
-// 👉 déplacement dynamique RESPONSIVE
 const sub = skill.querySelector(".skill-sub");
 
+// largeur réelle des sous-compétences
 const subWidth = sub.scrollWidth;
 
-// largeur écran
-const screenWidth = window.innerWidth;
+// position actuelle de la bulle
+const rect = main.getBoundingClientRect();
 
-// largeur cible de la bulle (comme en CSS)
-const mainTargetWidth = screenWidth * 0.35;
+// espace disponible à droite
+const spaceRight = window.innerWidth - rect.right;
 
-// limite pour éviter de sortir de l'écran
-const shift = Math.min(subWidth + 40, screenWidth - mainTargetWidth - 40);
+// combien il faut bouger pour laisser la place aux sous-compétences
+let shift = subWidth + 40;
+
+// si pas assez de place → on limite
+if (shift > rect.left + spaceRight) {
+  shift = rect.left + spaceRight - 20;
+}
 
 // déplacement
 main.style.transform = `translateX(${shift}px)`;
