@@ -44,41 +44,42 @@ header {
   box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
-.skill {
+.skills {
   display: flex;
-  gap: 20px;
-  align-items: flex-start; /* 🔥 IMPORTANT : alignement en haut */
-  position: relative;
-  overflow: hidden;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0 20px;
+  overflow-x: hidden;
 }
 
-/* bloc principal */
+.skill {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  width: 100%;
+}
+
+/* bulle principale */
 .skill-main {
   background: #1e1e1e;
   color: white;
   padding: 30px;
   border-radius: 20px;
-  width: 100%;
   cursor: pointer;
-  overflow: hidden;
-  transition: transform 0.5s ease, width 0.5s ease;
-  position: relative;
-  z-index: 2;
+  transition: transform 0.5s ease;
+  flex-shrink: 0;
 }
 
 /* sous-compétences */
 .skill-sub {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-
   display: flex;
   flex-direction: column;
   gap: 10px;
-
+  margin-left: 20px; /* 👈 GAP FIXE ICI */
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 /* état ouvert */
@@ -87,7 +88,7 @@ header {
   min-width: 250px;
 }
 
-/* quand ouvert */
+/* actif */
 .skill.active .skill-sub {
   opacity: 1;
   pointer-events: auto;
