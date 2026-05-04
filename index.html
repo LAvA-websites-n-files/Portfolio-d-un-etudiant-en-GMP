@@ -208,10 +208,29 @@ const sub = skill.querySelector(".skill-sub");
 
 const subWidth = sub.scrollWidth;
 
-// déplacement simple et cohérent
-const shift = subWidth + 60;
+const screenWidth = window.innerWidth;
 
-main.style.transform = `translateX(${shift}px)`;
+// largeur de la bulle principale
+const mainWidth = main.offsetWidth;
+
+// largeur bloc sous-compétences
+const subWidth = sub.scrollWidth;
+
+// marges
+const marginRight = 20; // espace entre bulle et bord écran
+const gap = 10;         // espace entre bulle et sous-compétences
+
+// calcul du déplacement
+const shift = screenWidth - mainWidth - marginRight - (main.getBoundingClientRect().left);
+
+// MAIS on limite pour garder 10px avec les sous-compétences
+const idealShift = subWidth + gap;
+
+// on prend le plus petit des deux
+const finalShift = Math.min(shift, idealShift);
+
+// déplacement
+main.style.transform = `translateX(${finalShift}px)`;
     }
   });
 });
