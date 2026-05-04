@@ -204,37 +204,17 @@ skill.style.minHeight = finalHeight + "px";
 if (!isActive) {
   skill.classList.add("active");
 
-const rect = main.getBoundingClientRect();
-
-// largeur écran réelle
-const viewportWidth = document.documentElement.clientWidth;
-
 // largeur sous-compétences
 const subWidth = sub.scrollWidth;
 
-// marges
-const marginRight = 20;
+// marge entre sous-compétences et bulle
 const gap = 20;
 
-// position max autorisée (collé à droite)
-const maxRight = viewportWidth - marginRight;
+// déplacement FINAL (simple et stable)
+const shift = subWidth + gap;
 
-// position actuelle droite
-const currentRight = rect.right;
-
-// combien on peut avancer sans dépasser l'écran
-const maxShift = maxRight - currentRight;
-
-// combien on DOIT avancer pour laisser la place aux sous-compétences
-const neededShift = subWidth + gap;
-
-// on prend la valeur SAFE
-const finalShift = Math.min(maxShift, neededShift);
-
-// sécurité anti négatif
-const safeShift = Math.max(0, finalShift);
-
-main.style.transform = `translateX(${safeShift}px)`;
+// applique
+main.style.transform = `translateX(${shift}px)`;
 }
   });
 });
