@@ -222,10 +222,10 @@ if (!isActive) {
   const idealShift = subWidth + gap;
 
   // on prend le plus petit
-  const finalShift = Math.min(shiftToEdge, idealShift);
+  const finalShift = Math.max(0, Math.min(shiftToEdge, idealShift));
 
   // déplacement
-  main.style.transform = `translateX(-${finalShift}px)`;
+  main.style.transform = `translateX(${finalShift}px)`;
 }
   });
 });
