@@ -221,11 +221,16 @@ if (!isActive) {
   // déplacement idéal pour laisser la place aux sous-compétences
   const idealShift = subWidth + gap;
 
-  // on prend le plus petit
-  const finalShift = Math.max(0, Math.min(shiftToEdge, idealShift));
+// on veut aller au MAX à droite
+let finalShift = shiftToEdge;
 
-  // déplacement
-  main.style.transform = `translateX(${finalShift}px)`;
+// MAIS on s'assure de laisser 10px avec les sous-compétences
+if (finalShift < idealShift) {
+  finalShift = idealShift;
+}
+
+// déplacement
+main.style.transform = `translateX(${finalShift}px)`;
 }
   });
 });
