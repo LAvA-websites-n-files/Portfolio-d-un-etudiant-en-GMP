@@ -197,9 +197,9 @@ skill.style.minHeight = finalHeight + "px";
 
     // reset tout
     skills.forEach(s => {
-      s.classList.remove("active");
-      s.querySelector(".skill-main").style.transform = "translateX(0)";
-    });
+  s.classList.remove("active");
+  s.querySelector(".skill-main").style.transform = "";
+});
 
     if (!isActive) {
       skill.classList.add("active");
