@@ -183,32 +183,22 @@ skills.forEach(skill => {
   });
 
   // 👉 2. adapte la hauteur de la skill
-const mainHeight = main.offsetHeight;
-const subHeight = sub.scrollHeight;
-
-const finalHeight = Math.max(mainHeight, subHeight);
-
-skill.style.minHeight = finalHeight + "px";
+  skill.style.minHeight = "auto";
 
   // 👉 3. interaction clic
-  main.addEventListener("click", () => {
-
-    const isActive = skill.classList.contains("active");
-
-    // reset tout
-    skills.forEach(s => {
-  s.classList.remove("active");
-  s.querySelector(".skill-main").style.transform = "";
-});
-
-    main.addEventListener("click", () => {
+main.addEventListener("click", () => {
   const isActive = skill.classList.contains("active");
 
-  skills.forEach(s => s.classList.remove("active"));
-
-if (!isActive) {
-  skill.classList.add("active");
-}
+  // reset tout
+  skills.forEach(s => {
+    s.classList.remove("active");
+    s.querySelector(".skill-main").style.transform = "";
   });
+
+  // toggle propre
+  if (!isActive) {
+    skill.classList.add("active");
+  }
+});
 });
 </script>
