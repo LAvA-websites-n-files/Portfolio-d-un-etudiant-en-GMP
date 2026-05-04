@@ -201,20 +201,13 @@ skill.style.minHeight = finalHeight + "px";
   s.querySelector(".skill-main").style.transform = "";
 });
 
+    main.addEventListener("click", () => {
+  const isActive = skill.classList.contains("active");
+
+  skills.forEach(s => s.classList.remove("active"));
+
 if (!isActive) {
   skill.classList.add("active");
-
-// largeur sous-compétences
-const subWidth = sub.scrollWidth;
-
-// marge entre sous-compétences et bulle
-const gap = 20;
-
-// déplacement FINAL (simple et stable)
-const shift = subWidth + gap;
-
-// applique
-main.style.transform = `translateX(${shift}px)`;
 }
   });
 });
