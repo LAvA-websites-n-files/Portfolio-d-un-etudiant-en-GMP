@@ -52,12 +52,19 @@ header {
   overflow-x: hidden;
 }
 
-.skill {
+.skills {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0 20px;
+  overflow-x: hidden;
+}
+
+.skill {
   position: relative;
   width: 100%;
+  display: flex;
+  align-items: flex-start;
 }
 
 /* bulle principale */
@@ -67,57 +74,50 @@ header {
   padding: 30px;
   border-radius: 20px;
   cursor: pointer;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s ease, height 0.6s ease;
+  position: relative;
+  z-index: 2;
   flex-shrink: 0;
 }
 
 /* sous-compétences */
 .skill-sub {
+  position: absolute;
+  left: 0;
+  top: 0;
+
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-left: 20px; /* 👈 GAP FIXE ICI */
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
 
-/* état ouvert */
-.skill.active .skill-main {
-  width: 35vw; /* s’adapte à la taille écran */
-  min-width: 250px;
-}
-
-/* actif */
-.skill.active .skill-sub {
   opacity: 1;
-  pointer-events: auto;
+  pointer-events: none;
 }
 
-/* items cachés */
+/* items */
 .sub-item {
   background: #2a2a2a;
+  color: white;
   padding: 10px;
   border-radius: 10px;
-  opacity: 0;
-  transform: translateX(100px);
-  color: #ffffff;
-}
 
-/* animation d'apparition */
-.skill.active .sub-item {
-  opacity: 1;
-  transform: translateX(0);
+  opacity: 0;
+  transform: translateX(80px);
   transition: all 0.4s ease;
 }
 
-/* effet cascade */
-.skill.active .sub-item:nth-child(1) { transition-delay: 0.5s; }
-.skill.active .sub-item:nth-child(2) { transition-delay: 0.6s; }
-.skill.active .sub-item:nth-child(3) { transition-delay: 0.7s; }
-.skill.active .sub-item:nth-child(4) { transition-delay: 0.8s; }
-.skill.active .sub-item:nth-child(5) { transition-delay: 0.9s; }
+/* activation apparition */
+.skill.show-sub .sub-item {
+  opacity: 1;
+  transform: translateX(0);
+}
 
+/* cascade droite → gauche */
+.skill.show-sub .sub-item:nth-child(1) { transition-delay: 0.4s; }
+.skill.show-sub .sub-item:nth-child(2) { transition-delay: 0.3s; }
+.skill.show-sub .sub-item:nth-child(3) { transition-delay: 0.2s; }
+.skill.show-sub .sub-item:nth-child(4) { transition-delay: 0.1s; }
+.skill.show-sub .sub-item:nth-child(5) { transition-delay: 0s; }
 .floating {
   position: absolute;
   display: block;
