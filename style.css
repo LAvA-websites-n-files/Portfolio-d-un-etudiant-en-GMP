@@ -47,15 +47,7 @@ header {
 .skills {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  padding: 0 20px;
-  overflow-x: hidden;
-}
-
-.skills {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+  gap: 0px;
   padding: 0 20px;
   overflow-x: hidden;
 }
