@@ -163,53 +163,84 @@
 <script>
 const skills = document.querySelectorAll(".skill");
 
+let activeSkill = null;
+
 skills.forEach(skill => {
   const main = skill.querySelector(".skill-main");
   const sub = skill.querySelector(".skill-sub");
   const items = skill.querySelectorAll(".sub-item");
 
-  // 👉 1. calcul largeur max des sous-compétences
+  // 1. largeur uniforme sous-compétences
   let maxWidth = 0;
-
   items.forEach(item => {
-    item.style.width = "auto"; // reset
-    const width = item.offsetWidth;
-    if (width > maxWidth) maxWidth = width;
+    item.style.width = "auto";
+    maxWidth = Math.max(maxWidth, item.offsetWidth);
+  });
+  items.forEach(item => item.style.width = maxWidth + "px");
+
+  // 2. hauteur dynamique (pendant animation aussi)
+  function updateHeight() {
+    const subHeight = sub.scrollHeight;
+    const mainHeight = main.offsetHeight;
+    skill.style.minHeight = Math.max(subHeight, mainHeight) + "px";
+  }
+  updateHeight();
+
+  main.addEventListener("click", () => {
+
+    // 🔁 CAS 1 : on clique sur la même compétence (toggle close)
+    if (activeSkill === skill) {
+      closeSkill(skill);
+      activeSkill = null;
+      return;
+    }
+
+    // 🔁 CAS 2 : une autre est ouverte → on ferme l’ancienne
+    if (activeSkill) {
+      closeSkill(activeSkill);
+    }
+
+    // ouverture nouvelle
+    openSkill(skill);
+    activeSkill = skill;
   });
 
-  // applique largeur uniforme
-  items.forEach(item => {
-    item.style.width = maxWidth + "px";
-  });
+  function openSkill(skill) {
+    const main = skill.querySelector(".skill-main");
+    const sub = skill.querySelector(".skill-sub");
 
-  // 👉 2. adapte la hauteur de la skill
-  skill.style.minHeight = "auto";
+    skill.classList.add("active");
 
-  // 👉 3. interaction clic
-main.addEventListener("click", () => {
-  const isActive = skill.classList.contains("active");
+    const subWidth = sub.scrollWidth;
+    const gap = 20;
 
-  // reset global
-  skills.forEach(s => {
-    s.classList.remove("active");
-    s.querySelector(".skill-main").style.transform = "";
-  });
+    // déplacement vers droite (place pour sous-compétences à gauche)
+    const shift = subWidth + gap;
+    main.style.transform = `translateX(${shift}px)`;
 
-  if (isActive) return;
+    // hauteur dynamique pendant animation
+    const update = () => {
+      const subHeight = sub.scrollHeight;
+      const mainHeight = main.offsetHeight;
+      skill.style.minHeight = Math.max(subHeight, mainHeight) + "px";
+    };
+    update();
 
-  skill.classList.add("active");
+    setTimeout(() => {
+      skill.classList.add("show-sub");
+    }, 500);
+  }
 
-  // 1. calcul déplacement (simple et stable)
-  const subWidth = sub.scrollWidth;
-  const shift = subWidth + 20;
+  function closeSkill(skill) {
+    const main = skill.querySelector(".skill-main");
 
-  // 2. déplacement de la bulle principale
-  main.style.transform = `translateX(${shift}px)`;
+    skill.classList.remove("show-sub");
 
-  // 3. délai = attendre fin animation déplacement
-  setTimeout(() => {
-    skill.classList.add("show-sub");
-  }, 500); // doit matcher transition CSS
-});
+    // attendre fin animation avant reset position
+    setTimeout(() => {
+      main.style.transform = "translateX(0px)";
+      skill.classList.remove("active");
+    }, 400);
+  }
 });
 </script>
