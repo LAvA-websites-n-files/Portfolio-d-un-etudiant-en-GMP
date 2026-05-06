@@ -78,6 +78,7 @@ header {
   position: relative;
   z-index: 2;
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 /* sous-compétences */
