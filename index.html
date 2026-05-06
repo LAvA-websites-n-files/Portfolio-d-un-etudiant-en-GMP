@@ -202,28 +202,30 @@ skills.forEach(skill => {
 
   skill.classList.add("active");
 
-  const rect = skill.getBoundingClientRect();
-  const viewportWidth = document.documentElement.clientWidth;
+const rect = skill.getBoundingClientRect();
+const viewportWidth = document.documentElement.clientWidth;
 
-  const subWidth = sub.scrollWidth;
-  const subHeight = sub.scrollHeight;
+const subWidth = sub.scrollWidth;
+const subHeight = sub.scrollHeight;
 
-  const marginRight = 20;
-  const gap = 20;
+const marginRight = 20;
+const gap = 20;
 
-  // 👉 LARGEUR EXACTE de la bulle
-  const mainWidth = viewportWidth - subWidth - gap - marginRight - rect.left;
+// ❌ ancien calcul faux
+// const mainWidth = viewportWidth - subWidth - gap - marginRight - rect.left;
 
-  // 👉 POSITION EXACTE (au lieu d’un calcul relatif instable)
-  const targetLeft = rect.left + (rect.width - mainWidth);
+// ✅ nouveau calcul CORRECT
+const containerWidth = skill.offsetWidth;
 
-  // 👉 déplacement = différence
-  const shift = targetLeft - rect.left;
+const mainWidth = containerWidth - subWidth - gap;
 
-  // 👉 application
-  main.style.width = `${mainWidth}px`;
-  main.style.height = `${subHeight}px`;
-  main.style.transform = `translateX(${shift}px)`;
+// position : coller à droite
+const shift = containerWidth - mainWidth - main.offsetLeft;
+
+// application
+main.style.width = `${mainWidth}px`;
+main.style.height = `${subHeight}px`;
+main.style.transform = `translateX(${shift}px)`;
 
   setTimeout(() => {
     skill.classList.add("show-sub");
