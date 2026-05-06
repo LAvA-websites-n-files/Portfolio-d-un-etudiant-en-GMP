@@ -197,38 +197,38 @@ skills.forEach(skill => {
   });
 
   function openSkill(skill) {
-    const main = skill.querySelector(".skill-main");
-    const sub = skill.querySelector(".skill-sub");
+  const main = skill.querySelector(".skill-main");
+  const sub = skill.querySelector(".skill-sub");
 
-    skill.classList.add("active");
+  skill.classList.add("active");
 
-    const rect = main.getBoundingClientRect();
-    const viewportWidth = document.documentElement.clientWidth;
+  const rect = skill.getBoundingClientRect();
+  const viewportWidth = document.documentElement.clientWidth;
 
-    const subWidth = sub.scrollWidth;
-    const subHeight = sub.scrollHeight;
+  const subWidth = sub.scrollWidth;
+  const subHeight = sub.scrollHeight;
 
-    const marginRight = 20;
-    const gap = 20;
+  const marginRight = 20;
+  const gap = 20;
 
-    // 👉 POSITION À DROITE (fixe à 20px du bord)
-    const targetRight = viewportWidth - marginRight;
-    const shift = targetRight - rect.right;
+  // 👉 LARGEUR EXACTE de la bulle
+  const mainWidth = viewportWidth - subWidth - gap - marginRight - rect.left;
 
-    // 👉 LARGEUR pour laisser la place aux sous-compétences
-    const availableWidth =
-      viewportWidth - subWidth - gap - marginRight - rect.left;
+  // 👉 POSITION EXACTE (au lieu d’un calcul relatif instable)
+  const targetLeft = rect.left + (rect.width - mainWidth);
 
-    main.style.width = `${availableWidth}px`;
-    main.style.height = `${subHeight}px`;
+  // 👉 déplacement = différence
+  const shift = targetLeft - rect.left;
 
-    main.style.transform = `translateX(${shift}px)`;
+  // 👉 application
+  main.style.width = `${mainWidth}px`;
+  main.style.height = `${subHeight}px`;
+  main.style.transform = `translateX(${shift}px)`;
 
-    // 👉 apparition des sous-compétences après mouvement
-    setTimeout(() => {
-      skill.classList.add("show-sub");
-    }, 500);
-  }
+  setTimeout(() => {
+    skill.classList.add("show-sub");
+  }, 500);
+}
 
   function closeSkill(skill) {
     const main = skill.querySelector(".skill-main");
