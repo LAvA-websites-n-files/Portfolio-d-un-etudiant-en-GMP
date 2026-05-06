@@ -162,7 +162,6 @@
 
 <script>
 const skills = document.querySelectorAll(".skill");
-
 let activeSkill = null;
 
 skills.forEach(skill => {
@@ -170,7 +169,7 @@ skills.forEach(skill => {
   const sub = skill.querySelector(".skill-sub");
   const items = skill.querySelectorAll(".sub-item");
 
-  // 1. largeur uniforme sous-compétences
+  // largeur uniforme
   let maxWidth = 0;
   items.forEach(item => {
     item.style.width = "auto";
@@ -178,29 +177,21 @@ skills.forEach(skill => {
   });
   items.forEach(item => item.style.width = maxWidth + "px");
 
-  // 2. hauteur dynamique (pendant animation aussi)
-  function updateHeight() {
-    const subHeight = sub.scrollHeight;
-    const mainHeight = main.offsetHeight;
-    skill.style.minHeight = Math.max(subHeight, mainHeight) + "px";
-  }
-  updateHeight();
-
   main.addEventListener("click", () => {
 
-    // 🔁 CAS 1 : on clique sur la même compétence (toggle close)
+    // 👉 SI on reclique sur la même → fermer
     if (activeSkill === skill) {
       closeSkill(skill);
       activeSkill = null;
       return;
     }
 
-    // 🔁 CAS 2 : une autre est ouverte → on ferme l’ancienne
+    // 👉 fermer ancienne
     if (activeSkill) {
       closeSkill(activeSkill);
     }
 
-    // ouverture nouvelle
+    // 👉 ouvrir nouvelle
     openSkill(skill);
     activeSkill = skill;
   });
@@ -211,21 +202,29 @@ skills.forEach(skill => {
 
     skill.classList.add("active");
 
+    const rect = main.getBoundingClientRect();
+    const viewportWidth = document.documentElement.clientWidth;
+
     const subWidth = sub.scrollWidth;
+    const subHeight = sub.scrollHeight;
+
+    const marginRight = 20;
     const gap = 20;
 
-    // déplacement vers droite (place pour sous-compétences à gauche)
-    const shift = subWidth + gap;
+    // 👉 POSITION À DROITE (fixe à 20px du bord)
+    const targetRight = viewportWidth - marginRight;
+    const shift = targetRight - rect.right;
+
+    // 👉 LARGEUR pour laisser la place aux sous-compétences
+    const availableWidth =
+      viewportWidth - subWidth - gap - marginRight - rect.left;
+
+    main.style.width = `${availableWidth}px`;
+    main.style.height = `${subHeight}px`;
+
     main.style.transform = `translateX(${shift}px)`;
 
-    // hauteur dynamique pendant animation
-    const update = () => {
-      const subHeight = sub.scrollHeight;
-      const mainHeight = main.offsetHeight;
-      skill.style.minHeight = Math.max(subHeight, mainHeight) + "px";
-    };
-    update();
-
+    // 👉 apparition des sous-compétences après mouvement
     setTimeout(() => {
       skill.classList.add("show-sub");
     }, 500);
@@ -236,9 +235,10 @@ skills.forEach(skill => {
 
     skill.classList.remove("show-sub");
 
-    // attendre fin animation avant reset position
     setTimeout(() => {
-      main.style.transform = "translateX(0px)";
+      main.style.transform = "";
+      main.style.width = "";
+      main.style.height = "";
       skill.classList.remove("active");
     }, 400);
   }
