@@ -4,11 +4,6 @@ let activeSkill = null;
 
 skills.forEach(skill => {
 
-const skills = document.querySelectorAll(".skill");
-let activeSkill = null;
-
-skills.forEach(skill => {
-
   const main = skill.querySelector(".skill-main");
   const sub = skill.querySelector(".skill-sub");
   const items = skill.querySelectorAll(".sub-item");
@@ -111,5 +106,3 @@ skills.forEach(skill => {
   }
 
 });  
-
-});
