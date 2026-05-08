@@ -165,85 +165,107 @@ const skills = document.querySelectorAll(".skill");
 let activeSkill = null;
 
 skills.forEach(skill => {
+
   const main = skill.querySelector(".skill-main");
   const sub = skill.querySelector(".skill-sub");
   const items = skill.querySelectorAll(".sub-item");
 
-  // largeur uniforme
+  // largeur uniforme sous-compétences
   let maxWidth = 0;
+
   items.forEach(item => {
     item.style.width = "auto";
     maxWidth = Math.max(maxWidth, item.offsetWidth);
   });
-  items.forEach(item => item.style.width = maxWidth + "px");
 
+  items.forEach(item => {
+    item.style.width = maxWidth + "px";
+  });
+
+  // CLICK
   main.addEventListener("click", () => {
 
-    // 👉 SI on reclique sur la même → fermer
+    // reclique → fermeture
     if (activeSkill === skill) {
       closeSkill(skill);
       activeSkill = null;
       return;
     }
 
-    // 👉 fermer ancienne
+    // ferme ancienne
     if (activeSkill) {
       closeSkill(activeSkill);
     }
 
-    // 👉 ouvrir nouvelle
+    // ouvre nouvelle
     openSkill(skill);
     activeSkill = skill;
   });
 
+  // OUVERTURE
   function openSkill(skill) {
-  const viewportWidth = window.innerWidth;
 
-const subWidth = sub.scrollWidth;
-const subHeight = sub.scrollHeight;
+    const main = skill.querySelector(".skill-main");
+    const sub = skill.querySelector(".skill-sub");
 
-const marginRight = 20;
-const gap = 20;
+    skill.classList.add("active");
 
-// largeur dispo totale dans la ligne
-const availableWidth =
-  viewportWidth
-  - subWidth
-  - gap
-  - marginRight
-  - 40; // padding sécurité gauche
+    const viewportWidth = window.innerWidth;
 
-// largeur finale bulle
-main.style.width = `${availableWidth}px`;
+    const subWidth = sub.scrollWidth;
+    const subHeight = sub.scrollHeight;
 
-// hauteur finale
-main.style.height = `${subHeight}px`;
+    const marginRight = 20;
+    const gap = 20;
 
-// largeur actuelle AVANT animation
-const currentWidth = main.getBoundingClientRect().width;
+    // largeur finale bulle
+    const availableWidth =
+      viewportWidth
+      - subWidth
+      - gap
+      - marginRight
+      - 40;
 
-// déplacement nécessaire
-const shift =
-  viewportWidth
-  - availableWidth
-  - marginRight
-  - main.getBoundingClientRect().left;
+    main.style.width = `${availableWidth}px`;
 
-// animation vers droite
-main.style.transform = `translateX(${shift}px)`;
+    // hauteur identique aux sous-compétences
+    main.style.height = `${subHeight}px`;
+
+    // position actuelle
+    const rect = main.getBoundingClientRect();
+
+    // déplacement vers droite
+    const shift =
+      viewportWidth
+      - availableWidth
+      - marginRight
+      - rect.left;
+
+    main.style.transform = `translateX(${shift}px)`;
+
+    // apparition sous-compétences après déplacement
+    setTimeout(() => {
+      skill.classList.add("show-sub");
+    }, 500);
   }
 
+  // FERMETURE
   function closeSkill(skill) {
+
     const main = skill.querySelector(".skill-main");
 
     skill.classList.remove("show-sub");
 
     setTimeout(() => {
+
       main.style.transform = "";
       main.style.width = "";
       main.style.height = "";
+
       skill.classList.remove("active");
+
     }, 400);
   }
+
 });
 </script>
