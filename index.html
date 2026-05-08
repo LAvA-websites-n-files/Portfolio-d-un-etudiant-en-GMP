@@ -197,13 +197,7 @@ skills.forEach(skill => {
   });
 
   function openSkill(skill) {
-  const main = skill.querySelector(".skill-main");
-  const sub = skill.querySelector(".skill-sub");
-
-  skill.classList.add("active");
-
-const rect = skill.getBoundingClientRect();
-const viewportWidth = document.documentElement.clientWidth;
+  const viewportWidth = window.innerWidth;
 
 const subWidth = sub.scrollWidth;
 const subHeight = sub.scrollHeight;
@@ -211,26 +205,32 @@ const subHeight = sub.scrollHeight;
 const marginRight = 20;
 const gap = 20;
 
-// ❌ ancien calcul faux
-// const mainWidth = viewportWidth - subWidth - gap - marginRight - rect.left;
+// largeur dispo totale dans la ligne
+const availableWidth =
+  viewportWidth
+  - subWidth
+  - gap
+  - marginRight
+  - 40; // padding sécurité gauche
 
-// ✅ nouveau calcul CORRECT
-const containerWidth = skill.offsetWidth;
+// largeur finale bulle
+main.style.width = `${availableWidth}px`;
 
-const mainWidth = containerWidth - subWidth - gap;
-
-// position : coller à droite
-const shift = containerWidth - mainWidth - main.offsetLeft;
-
-// application
-main.style.width = `${mainWidth}px`;
+// hauteur finale
 main.style.height = `${subHeight}px`;
-main.style.transform = `translateX(${shift}px)`;
 
-  setTimeout(() => {
-    skill.classList.add("show-sub");
-  }, 500);
-}
+// largeur actuelle AVANT animation
+const currentWidth = main.getBoundingClientRect().width;
+
+// déplacement nécessaire
+const shift =
+  viewportWidth
+  - availableWidth
+  - marginRight
+  - main.getBoundingClientRect().left;
+
+// animation vers droite
+main.style.transform = `translateX(${shift}px)`;
 
   function closeSkill(skill) {
     const main = skill.querySelector(".skill-main");
