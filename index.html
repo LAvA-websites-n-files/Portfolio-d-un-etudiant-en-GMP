@@ -160,112 +160,67 @@
     <p>© 2025 - Portfolio d'un étudiant en GMP</p>
   </footer>
 
-<script>
-const skills = document.querySelectorAll(".skill");
-let activeSkill = null;
+<section class="main-section">
 
-skills.forEach(skill => {
+  <div class="main-header">
+    <h2>Écoles</h2>
+  </div>
 
-  const main = skill.querySelector(".skill-main");
-  const sub = skill.querySelector(".skill-sub");
-  const items = skill.querySelectorAll(".sub-item");
+  <div class="main-content">
 
-  // largeur uniforme sous-compétences
-  let maxWidth = 0;
+    <!-- LYCÉE -->
+    <div class="sub-section">
 
-  items.forEach(item => {
-    item.style.width = "auto";
-    maxWidth = Math.max(maxWidth, item.offsetWidth);
-  });
+      <div class="sub-header">
+        <h3>Lycée</h3>
+      </div>
 
-  items.forEach(item => {
-    item.style.width = maxWidth + "px";
-  });
+      <div class="sub-content">
+        contenu lycée
+      </div>
 
-  // CLICK
-  main.addEventListener("click", () => {
+    </div>
 
-    // reclique → fermeture
-    if (activeSkill === skill) {
-      closeSkill(skill);
-      activeSkill = null;
-      return;
-    }
+    <!-- BUT GMP -->
+    <div class="sub-section">
 
-    // ferme ancienne
-    if (activeSkill) {
-      closeSkill(activeSkill);
-    }
+      <div class="sub-header">
+        <h3>BUT GMP</h3>
+      </div>
 
-    // ouvre nouvelle
-    openSkill(skill);
-    activeSkill = skill;
-  });
+      <div class="sub-content">
 
-  // OUVERTURE
-  function openSkill(skill) {
+        <p>
+          description BUT GMP
+        </p>
 
-    const main = skill.querySelector(".skill-main");
-    const sub = skill.querySelector(".skill-sub");
+        <!-- compétences -->
+        <div class="skills">
 
-    skill.classList.add("active");
+          ...
 
-    const viewportWidth = window.innerWidth;
+        </div>
 
-    const subWidth = items[0].offsetWidth;
-    const subHeight = sub.scrollHeight;
+      </div>
 
-    const marginRight = 20;
-    const gap = 20;
+    </div>
 
-    // largeur finale bulle
-    const availableWidth =
-      viewportWidth
-      - subWidth
-      - gap
-      - marginRight
-      - 20;
+  </div>
 
-    main.style.width = `${availableWidth}px`;
+</section>
 
-    // hauteur identique aux sous-compétences
-    main.style.height = `${subHeight}px`;
+<section class="main-section">
 
-    // position actuelle
-    const rect = main.getBoundingClientRect();
+  <div class="main-header">
+    <h2>Emplois</h2>
+  </div>
 
-    // déplacement vers droite
-    const shift =
-      viewportWidth
-      - availableWidth
-      - marginRight
-      - rect.left;
+  <div class="main-content">
 
-    main.style.transform = `translateX(${shift}px)`;
+    contenu emplois
 
-    // apparition sous-compétences après déplacement
-    setTimeout(() => {
-      skill.classList.add("show-sub");
-    }, 500);
-  }
+  </div>
 
-  // FERMETURE
-  function closeSkill(skill) {
-
-    const main = skill.querySelector(".skill-main");
-
-    skill.classList.remove("show-sub");
-
-    setTimeout(() => {
-
-      main.style.transform = "";
-      main.style.width = "";
-      main.style.height = "";
-
-      skill.classList.remove("active");
-
-    }, 400);
-  }
-
-});
-</script>
+</section>
+<script src="sections.js"></script>
+<script src="skills.js"></script>
