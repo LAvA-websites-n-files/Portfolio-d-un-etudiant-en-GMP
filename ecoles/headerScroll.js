@@ -1,11 +1,18 @@
-const overlay = document.querySelector(".header-overlay");
+const gradient = document.querySelector(".header-gradient");
 
 window.addEventListener("scroll", () => {
 
-  const scrollY = window.scrollY;
+  const scroll = window.scrollY;
 
-  // progression limitée
-  const scale = 1 + Math.min(scrollY / 500, 1.5);
+  // limite la progression
+  const maxScroll = window.innerHeight;
 
-  overlay.style.transform = `scaleY(${scale})`;
+  // progression entre 0 et 1
+  const progress = Math.min(scroll / maxScroll, 1);
+
+  // le dégradé monte progressivement
+  const newHeight = 25 + (progress * 75);
+
+  gradient.style.height = `${newHeight}%`;
+
 });
