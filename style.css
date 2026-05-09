@@ -242,3 +242,58 @@ header {
 .nav-card:hover {
   transform: translateY(-5px);
 }
+
+/* HEADER GMP */
+.gmp-header {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+
+  background-image: url("images/GMP_header.jpg");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  padding-bottom: 80px;
+}
+
+/* contenu texte */
+.header-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: white;
+}
+
+.header-content h1 {
+  font-size: clamp(3rem, 8vw, 7rem);
+  margin: 0;
+  letter-spacing: 4px;
+}
+
+.header-content p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* dégradé noir */
+.header-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,0.85) 20%,
+    rgba(0,0,0,0.4) 45%,
+    rgba(0,0,0,0) 70%
+  );
+
+  z-index: 2;
+
+  transform-origin: bottom;
+  transition: transform 0.1s linear;
+}
