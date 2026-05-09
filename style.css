@@ -50,6 +50,9 @@ header {
   gap: 20px;
   padding: 0 20px;
   overflow-x: hidden;
+  position: relative;
+  z-index: 5;
+  background: black;
 }
 
 .skill {
@@ -288,4 +291,12 @@ header {
   );
 
   transition: height 0.05s linear;
+}
+
+IUT_GMP_Metz.html {
+  scroll-behavior: smooth;
+}
+
+.gmp-header {
+  background-attachment: fixed;
 }
