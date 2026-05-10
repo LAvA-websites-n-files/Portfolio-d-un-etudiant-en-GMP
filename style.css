@@ -321,26 +321,24 @@ IUT_GMP_Metz.html {
 .intro-text {
   position: relative;
   z-index: 5;
-
   max-width: 900px;
-
   margin: 0 auto;
-  padding: 120px 40px 80px;
-
+  margin-bottom: 200px;
+  padding: 120px 40px 0;
   color: white;
-
   text-align: center;
-
   opacity: 1;
-
   transform: translateY(0);
-
   transition:
-    opacity 0.15s linear,
-    transform 0.15s linear,
-    filter 0.15s linear;
-
-  will-change: opacity, transform, filter;
+    opacity 0.1s linear,
+    transform 0.1s linear,
+    filter 0.1s linear,
+    margin-bottom 0.1s linear;
+  will-change:
+    opacity,
+    transform,
+    filter,
+    margin-bottom;
 }
 
 .intro-text h2 {
