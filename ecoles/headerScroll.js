@@ -13,12 +13,14 @@ window.addEventListener("scroll", () => {
 const intro = document.querySelector(".intro-text");
 
 window.addEventListener("scroll", () => {
-  const scroll = window.scrollY;
+  const rect = intro.getBoundingClientRect();
 
-  const start = 0;
-  const end = 400;
+  // distance entre le haut de l'écran et l'élément
+  const windowHeight = window.innerHeight;
 
-  let progress = scroll / end;
+  // progression basée sur l'entrée dans l'écran
+  let progress = 1 - (rect.top / windowHeight);
+
   progress = Math.min(Math.max(progress, 0), 1);
 
   const scale = 1 - progress * 0.35;
