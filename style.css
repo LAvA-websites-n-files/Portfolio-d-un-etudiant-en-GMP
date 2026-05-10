@@ -322,6 +322,8 @@ html, body {
 
 .gmp-header {
   background-attachment: fixed;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .intro-container {
