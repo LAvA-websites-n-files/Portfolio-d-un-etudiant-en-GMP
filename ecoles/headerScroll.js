@@ -10,3 +10,30 @@ window.addEventListener("scroll", () => {
   gradient.style.transform = `translateY(${55 - (move / window.innerHeight) * 100}%)`;
 
 });
+
+const intro = document.querySelector(".intro-text");
+
+window.addEventListener("scroll", () => {
+
+  const scroll = window.scrollY;
+
+  // début disparition
+  const start = 200;
+
+  // durée
+  const distance = 400;
+
+  const progress = Math.min(
+    Math.max((scroll - start) / distance, 0),
+    1
+  );
+
+  intro.style.opacity = 1 - progress;
+
+  intro.style.transform =
+    `translateY(-${progress * 80}px)`;
+
+  intro.style.filter =
+    `blur(${progress * 6}px)`;
+
+});
