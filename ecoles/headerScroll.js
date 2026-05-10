@@ -10,7 +10,6 @@ window.addEventListener("scroll", () => {
   gradient.style.transform = `translateY(${55 - (move / window.innerHeight) * 100}%)`;
 
 });
-
 const intro = document.querySelector(".intro-text");
 
 window.addEventListener("scroll", () => {
@@ -19,11 +18,11 @@ window.addEventListener("scroll", () => {
   const start = 0;
   const end = 400;
 
-  const progress = Math.min(scroll / end, 1);
+  let progress = scroll / end;
+  progress = Math.min(Math.max(progress, 0), 1);
 
-  // zoom out + fade + montée
-  const scale = 1 - progress * 0.3; // 1 → 0.7
-  const translateY = progress * -80; // monte
+  const scale = 1 - progress * 0.35;
+  const translateY = -progress * 120;
   const opacity = 1 - progress;
   const blur = progress * 6;
 
