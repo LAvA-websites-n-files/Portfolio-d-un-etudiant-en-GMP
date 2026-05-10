@@ -327,11 +327,6 @@ html, body {
   overflow: hidden;
 }
 
-.intro-container {
-  position: relative;
-  height: 100vh;
-}
-
 .intro-text {
   position: sticky;
   top: 0;
