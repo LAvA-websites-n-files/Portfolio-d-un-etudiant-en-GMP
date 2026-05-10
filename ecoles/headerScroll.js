@@ -12,32 +12,23 @@ window.addEventListener("scroll", () => {
 });
 
 const intro = document.querySelector(".intro-text");
+const wrapper = document.querySelector(".intro-wrapper");
 
 window.addEventListener("scroll", () => {
 
-  const scroll = window.scrollY;
-
-  const start = 150;
-  const distance = 400;
+  const rect = wrapper.getBoundingClientRect();
 
   const progress = Math.min(
-    Math.max((scroll - start) / distance, 0),
+    Math.max(-rect.top / rect.height, 0),
     1
   );
 
-  // disparition
   intro.style.opacity = 1 - progress;
 
-  // légère montée
   intro.style.transform =
-    `translateY(-${progress * 60}px)`;
+    `translateY(-${progress * 120}px)`;
 
-  // blur progressif
   intro.style.filter =
-    `blur(${progress * 8}px)`;
-
-  // réduction de l'espace
-  intro.style.marginBottom =
-    `${200 - (progress * 180)}px`;
+    `blur(${progress * 10}px)`;
 
 });
