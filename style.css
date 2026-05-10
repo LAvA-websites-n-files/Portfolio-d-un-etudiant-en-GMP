@@ -318,6 +318,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .gmp-header {
@@ -328,11 +329,12 @@ html, body {
 
 .intro-container {
   position: relative;
-  height: 150vh;
+  height: 100vh;
 }
 
 .intro-text {
-  position: relative;
+  position: sticky;
+  top: 0;
 
   max-width: 900px;
   margin: 0 auto;
@@ -341,7 +343,7 @@ html, body {
   color: white;
   text-align: center;
 
-  transform-origin: center;
+  transform-origin: center top;
   will-change: transform, opacity, filter;
 }
 
