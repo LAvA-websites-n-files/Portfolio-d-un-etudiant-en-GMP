@@ -7,12 +7,6 @@ body {
   overflow-x: hidden;
 }
 
-body::after {
-  content: "";
-  display: block;
-  height: 50vh;
-}
-
 header {
   height: 400px;
   background-image: url("images/header.jpg");
@@ -327,18 +321,18 @@ html, body {
   overflow: hidden;
 }
 
-.intro-text {
-  position: sticky;
-  top: 0;
+.intro-container {
+  position: relative;
+  background: black;
+}
 
+.intro-text {
+  position: relative;
   max-width: 900px;
   margin: 0 auto;
-  padding: 120px 40px 0;
-
+  padding: 120px 40px 80px;
   color: white;
   text-align: center;
-
-  transform-origin: center top;
   will-change: transform, opacity, filter;
 }
 
