@@ -17,10 +17,7 @@ window.addEventListener("scroll", () => {
 
   const scroll = window.scrollY;
 
-  // début disparition
-  const start = 200;
-
-  // durée
+  const start = 150;
   const distance = 400;
 
   const progress = Math.min(
@@ -28,12 +25,19 @@ window.addEventListener("scroll", () => {
     1
   );
 
+  // disparition
   intro.style.opacity = 1 - progress;
 
+  // légère montée
   intro.style.transform =
-    `translateY(-${progress * 80}px)`;
+    `translateY(-${progress * 60}px)`;
 
+  // blur progressif
   intro.style.filter =
-    `blur(${progress * 6}px)`;
+    `blur(${progress * 8}px)`;
+
+  // réduction de l'espace
+  intro.style.marginBottom =
+    `${200 - (progress * 180)}px`;
 
 });
