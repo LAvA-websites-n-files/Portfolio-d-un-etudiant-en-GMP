@@ -314,18 +314,23 @@ IUT_GMP_Metz.html {
   scroll-behavior: smooth;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 .gmp-header {
   background-attachment: fixed;
 }
 
 .intro-container {
   position: relative;
-  height: 60vh;
+  height: 150vh;
 }
 
 .intro-text {
-  position: sticky;
-  top: 0;
+  position: relative;
 
   max-width: 900px;
   margin: 0 auto;
