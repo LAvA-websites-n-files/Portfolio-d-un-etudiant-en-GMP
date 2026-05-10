@@ -318,6 +318,14 @@ IUT_GMP_Metz.html {
   background-attachment: fixed;
 }
 
+.intro-wrapper {
+  position: relative;
+  height: 120vh;
+
+  display: flex;
+  justify-content: center;
+}
+
 .intro-text {
   position: sticky;
   top: 20vh;
