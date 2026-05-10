@@ -1,11 +1,14 @@
 const gradient = document.querySelector(".header-gradient");
 
-  // déplacement progressif
+window.addEventListener("scroll", () => {
+  const scroll = window.scrollY;
+
   const move = Math.min(scroll * 0.35, window.innerHeight * 0.55);
 
-  gradient.style.transform = `translateY(${55 - (move / window.innerHeight) * 100}%)`;
-
+  gradient.style.transform =
+    `translateY(${55 - (move / window.innerHeight) * 100}%)`;
 });
+
 const intro = document.querySelector(".intro-text");
 
 window.addEventListener("scroll", () => {
