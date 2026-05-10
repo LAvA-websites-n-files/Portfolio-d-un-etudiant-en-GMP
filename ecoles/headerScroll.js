@@ -12,23 +12,33 @@ window.addEventListener("scroll", () => {
 });
 
 const intro = document.querySelector(".intro-text");
-const wrapper = document.querySelector(".intro-wrapper");
+const introContainer = document.querySelector(".intro-container");
 
 window.addEventListener("scroll", () => {
 
-  const rect = wrapper.getBoundingClientRect();
+  const scroll = window.scrollY;
+
+  const start = window.innerHeight * 0.8;
+  const distance = 400;
 
   const progress = Math.min(
-    Math.max(-rect.top / rect.height, 0),
+    Math.max((scroll - start) / distance, 0),
     1
   );
 
+  // fade
   intro.style.opacity = 1 - progress;
 
+  // montée
   intro.style.transform =
-    `translateY(-${progress * 120}px)`;
+    `translateY(-${progress * 100}px)`;
 
+  // blur
   intro.style.filter =
-    `blur(${progress * 10}px)`;
+    `blur(${progress * 8}px)`;
+
+  // réduction réelle de l'espace
+  introContainer.style.height =
+    `${500 - (progress * 420)}px`;
 
 });
