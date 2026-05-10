@@ -14,27 +14,20 @@ window.addEventListener("scroll", () => {
 const intro = document.querySelector(".intro-text");
 
 window.addEventListener("scroll", () => {
-
   const scroll = window.scrollY;
 
-  const start = window.innerHeight * 0.6;
-  const distance = 500;
+  const start = 0;
+  const end = 400;
 
-  const progress = Math.min(
-    Math.max((scroll - start) / distance, 0),
-    1
-  );
+  const progress = Math.min(scroll / end, 1);
 
-  // fade
-  intro.style.opacity = 1 - progress;
+  // zoom out + fade + montée
+  const scale = 1 - progress * 0.3; // 1 → 0.7
+  const translateY = progress * -80; // monte
+  const opacity = 1 - progress;
+  const blur = progress * 6;
 
-  // zoom OUT progressif
-  const scale = 1 - (progress * 0.35);
-  intro.style.transform =
-    `scale(${scale}) translateY(-${progress * 80}px)`;
-
-  // léger blur pour renforcer l’effet
-  intro.style.filter =
-    `blur(${progress * 6}px)`;
-
+  intro.style.transform = `translateY(${translateY}px) scale(${scale})`;
+  intro.style.opacity = opacity;
+  intro.style.filter = `blur(${blur}px)`;
 });
