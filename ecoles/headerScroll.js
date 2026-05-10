@@ -12,14 +12,13 @@ window.addEventListener("scroll", () => {
 });
 
 const intro = document.querySelector(".intro-text");
-const introContainer = document.querySelector(".intro-container");
 
 window.addEventListener("scroll", () => {
 
   const scroll = window.scrollY;
 
-  const start = window.innerHeight * 0.8;
-  const distance = 400;
+  const start = window.innerHeight * 0.6;
+  const distance = 500;
 
   const progress = Math.min(
     Math.max((scroll - start) / distance, 0),
@@ -29,16 +28,13 @@ window.addEventListener("scroll", () => {
   // fade
   intro.style.opacity = 1 - progress;
 
-  // montée
+  // zoom OUT progressif
+  const scale = 1 - (progress * 0.35);
   intro.style.transform =
-    `translateY(-${progress * 100}px)`;
+    `scale(${scale}) translateY(-${progress * 80}px)`;
 
-  // blur
+  // léger blur pour renforcer l’effet
   intro.style.filter =
-    `blur(${progress * 8}px)`;
-
-  // réduction réelle de l'espace
-  introContainer.style.height =
-    `${500 - (progress * 420)}px`;
+    `blur(${progress * 6}px)`;
 
 });
